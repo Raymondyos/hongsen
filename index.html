@@ -9,6 +9,13 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"/>
 <style>
+  .img-hover-zoom {
+  transition: transform 0.3s ease;
+}
+.img-hover-zoom:hover {
+  transform: scale(1.05);
+}
+
   * { box-sizing: border-box; }
   body {
     font-family: "Segoe UI", sans-serif;
@@ -271,6 +278,14 @@ body.loaded #preloader {
 }
 </style></head>
 <body>
+<div class="container mt-4" id="language-selector" style="text-align: right;">
+<label class="form-label text-white" for="language-select">Pilih Bahasa:</label>
+<select class="form-select w-auto d-inline-block" id="language-select">
+<option value="id">Indonesia</option>
+<option value="en">English</option>
+<option value="zh">中文 (Chinese)</option>
+</select>
+</div>
 <div id="preloader">
 <div class="preloader-blur-line"></div>
 <div class="preloader-content">
@@ -323,7 +338,7 @@ body.loaded #preloader {
 <h2 class="section-title">Profil Perusahaan</h2>
 <p>Pada tahun 2015, Shenzhen Honsgen Environmental Technology Co., Ltd. mengakuisisi merek ternama di industri pengolahan air yang telah berdiri selama 10 tahun, dan secara resmi memasuki industri pengolahan air. Dengan modal dasar sebesar 41 juta RMB, perusahaan ini merupakan perusahaan teknologi lingkungan yang mengintegrasikan peralatan pengolahan air limbah, peralatan evaporator, peralatan daur ulang air bekas, peralatan desalinasi air laut, dan peralatan air ultra murni industri. Honsgen juga merupakan salah satu perusahaan otoritas terua yang bergerak di industri lingkungan.</p>
 <p>Berkantor pusat di Tiongkok dan melayani Asia serta pasar global, perusahaan ini memiliki lebih dari 100 teknologi pengolahan air domestik dan internasional. Kantor cabang atau perwakilan didirikan di lebih dari 30 kota di Tiongkok, dengan lebih dari 50% produk diekspor ke Eropa dan Amerika. Semua produk dan layanan dirancang, diproduksi, dan disesuaikan dengan standar kualitas tertinggi Uni Eropa dan Amerika Utara.</p>
-<p>Saat ini, perusahaan memiliki lebih dari 300 karyawan, dengan 90% berpendidikan sarjana, termasuk 8 doktor, 25 magister, 5 insinyur senior, dan 56 staf penelitian profesional. Nilai output tahunan melebihi 500 juta RMB. Produknya digunakan di lebih dari 300 industri, termasuk optoelektronik, pembangkit listrik termal/nuklir, polisilikon, minyak & gas, semikonduktor, pelapisan logam, dan makanan.</p>
+<p>Saat ini, perusahaan memiliki lebih dari 300 karyawan, dengan 90% berpendidikan sarjana, termasuk 8 doktor, 25 magister, 5 insinyur senior, dan 56 staf penelitian profesional. Nilai output tahunan melebihi 500 juta RMB. Produknya digunakan di lebih dari 300 industri, termasuk optoelektronik, pembangkit listrik termal/nuklir, polisilikon, minyak &amp; gas, semikonduktor, pelapisan logam, dan makanan.</p>
 <p>Kami senantiasa berpegang pada filosofi perusahaan "Teknologi Menciptakan Kualitas Tinggi" dengan prinsip operasional "Inovasi Teknologi, Inovasi Produk, dan Inovasi Layanan". Dengan dedikasi jangka panjang dalam pengembangan, penelitian, dan produksi peralatan pengolahan air, kami telah mengumpulkan pengalaman manufaktur yang kaya di bidang teknologi pengolahan air. Perusahaan kami dilengkapi dengan peralatan produksi canggih, metode inspeksi yang komprehensif, sistem jaminan kualitas terintegrasi, layanan purna jual yang efisien dan berkualitas tinggi.</p>
 <p>Selama bertahun-tahun, fokus utama kami meliputi manufaktur peralatan pengolahan air seperti peralatan air murni, peralatan pengolahan air limbah, evaporator MVR, sistem daur ulang air bekas, serta pengolahan air limbah berkadar garam tinggi. Kami juga telah membangun kemitraan jangka panjang yang stabil dengan berbagai institut penelitian dan departemen desain teknik terkemuka.</p>
 </section>
@@ -388,23 +403,23 @@ body.loaded #preloader {
 <div class="carousel-item">
 <video class="d-block w-100 rounded shadow-sm" controls="">
 <source src="video/Video2.mp4" type="video/mp4"/>
-</div>
+</video></div>
 <div class="carousel-item">
 <video class="d-block w-100 rounded shadow-sm" controls="">
 <source src="video/Video3.mp4" type="video/mp4"/>
-</div>
+</video></div>
 <div class="carousel-item">
 <video class="d-block w-100 rounded shadow-sm" controls="">
 <source src="video/Video4.mp4" type="video/mp4"/>
-</div>
+</video></div>
 <div class="carousel-item">
 <video class="d-block w-100 rounded shadow-sm" controls="">
 <source src="video/Video5.mp4" type="video/mp4"/>
-</div>
+</video></div>
 <div class="carousel-item">
 <video class="d-block w-100 rounded shadow-sm" controls="">
 <source src="video/Video6.mp4" type="video/mp4"/>
-</div>
+</video></div>
 <button class="carousel-control-prev" data-bs-slide="prev" data-bs-target="#companyGalleryCarousel" type="button">
 <span aria-hidden="true" class="carousel-control-prev-icon"></span>
 <span class="visually-hidden">Previous</span>
@@ -414,6 +429,158 @@ body.loaded #preloader {
 <span class="visually-hidden">Next</span>
 </button>
 </div>
+</div></section>
+<section class="container section-card" data-aos="fade-up" id="lingkungan">
+  <h2 class="section-title">Lingkungan Perusahaan</h2>
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
+    <div class="col text-center">
+      <img src="img/L1.jpg" alt="Lingkungan 1" class="img-fluid rounded shadow-sm img-hover-zoom" />
+      <p class="text-light mt-2">Lingkungan 1</p>
+    </div>
+    <div class="col text-center">
+      <img src="img/L2.jpg" alt="Lingkungan 2" class="img-fluid rounded shadow-sm img-hover-zoom" />
+      <p class="text-light mt-2">Lingkungan 2</p>
+    </div>
+    <div class="col text-center">
+      <img src="img/L3.jpg" alt="Lingkungan 3" class="img-fluid rounded shadow-sm img-hover-zoom" />
+      <p class="text-light mt-2">Lingkungan 3</p>
+    </div>
+    <div class="col text-center">
+      <img src="img/L4.jpg" alt="Lingkungan 4" class="img-fluid rounded shadow-sm img-hover-zoom" />
+      <p class="text-light mt-2">Lingkungan 4</p>
+    </div>
+    <div class="col text-center">
+      <img src="img/L5.jpg" alt="Lingkungan 5" class="img-fluid rounded shadow-sm img-hover-zoom" />
+      <p class="text-light mt-2">Lingkungan 5</p>
+    </div>
+  </div>
+</section>
+<section class="container section-card" data-aos="fade-up" id="display-produk">
+  <h2 class="section-title">Display Produk</h2>
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
+    <!-- Tambahkan semua gambar produk berikut pola ini -->
+    <div class="col text-center">
+      <img src="img/DP1.jpg" alt="Produk 1" class="img-fluid rounded shadow-sm img-hover-zoom" />
+      <p class="text-light mt-2">Produk 1</p>
+    </div>
+    <div class="col text-center">
+      <img src="img/DP2.jpg" alt="Produk 2" class="img-fluid rounded shadow-sm img-hover-zoom" />
+      <p class="text-light mt-2">Produk 2</p>
+    </div>
+    <div class="col text-center">
+      <img src="img/DP3.jpg" alt="Produk 3" class="img-fluid rounded shadow-sm img-hover-zoom" />
+      <p class="text-light mt-2">Produk 3</p>
+    </div>
+    <div class="col text-center">
+      <img src="img/DP4.jpg" alt="Produk 4" class="img-fluid rounded shadow-sm img-hover-zoom" />
+      <p class="text-light mt-2">Produk 4</p>
+    </div>
+    <div class="col text-center">
+      <img src="img/DP5.jpg" alt="Produk 5" class="img-fluid rounded shadow-sm img-hover-zoom" />
+      <p class="text-light mt-2">Produk 5</p>
+    </div>
+    <div class="col text-center">
+      <img src="img/DP6.jpg" alt="Produk 6" class="img-fluid rounded shadow-sm img-hover-zoom" />
+      <p class="text-light mt-2">Produk 6</p>
+    </div>
+    <div class="col text-center">
+      <img src="img/dp7.jpg" alt="Produk 7" class="img-fluid rounded shadow-sm img-hover-zoom" />
+      <p class="text-light mt-2">Produk 7</p>
+    </div>
+    <div class="col text-center">
+      <img src="img/DP8.jpg" alt="Produk 8" class="img-fluid rounded shadow-sm img-hover-zoom" />
+      <p class="text-light mt-2">Produk 8</p>
+    </div>
+    <div class="col text-center">
+      <img src="img/DP9.jpg" alt="Produk 9" class="img-fluid rounded shadow-sm img-hover-zoom" />
+      <p class="text-light mt-2">Produk 9</p>
+    </div>
+    <div class="col text-center">
+      <img src="img/DP10.jpg" alt="Produk 10" class="img-fluid rounded shadow-sm img-hover-zoom" />
+      <p class="text-light mt-2">Produk 10</p>
+    </div>
+    <div class="col text-center">
+      <img src="img/DP11.jpg" alt="Produk 11" class="img-fluid rounded shadow-sm img-hover-zoom" />
+      <p class="text-light mt-2">Produk 11</p>
+    </div>
+    <div class="col text-center">
+      <img src="img/DP12.jpg" alt="Produk 12" class="img-fluid rounded shadow-sm img-hover-zoom" />
+      <p class="text-light mt-2">Produk 12</p>
+    </div>
+  </section>
+
+</section>
+<section class="container section-card" data-aos="fade-up" id="kualifikasi">
+  <h2 class="section-title">Kualifikasi Perusahaan</h2>
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
+    <div class="col text-center">
+      <img src="img/S1.jpg" alt="Sertifikat 1" class="img-fluid rounded shadow-sm img-hover-zoom" />
+      <p class="text-light mt-2">Sertifikat 1</p>
+    </div>
+    <div class="col text-center">
+      <img src="img/S2.jpg" alt="Sertifikat 2" class="img-fluid rounded shadow-sm img-hover-zoom" />
+      <p class="text-light mt-2">Sertifikat 2</p>
+    </div>
+    <div class="col text-center">
+      <img src="img/S3.jpg" alt="Sertifikat 3" class="img-fluid rounded shadow-sm img-hover-zoom" />
+      <p class="text-light mt-2">Sertifikat 3</p>
+    </div>
+    <div class="col text-center">
+      <img src="img/s4.jpg" alt="Sertifikat 4" class="img-fluid rounded shadow-sm img-hover-zoom" />
+      <p class="text-light mt-2">Sertifikat 4</p>
+    </div>
+    <div class="col text-center">
+      <img src="img/S5.jpg" alt="Sertifikat 5" class="img-fluid rounded shadow-sm img-hover-zoom" />
+      <p class="text-light mt-2">Sertifikat 5</p>
+    </div>
+    <div class="col text-center">
+      <img src="img/S6.jpg" alt="Sertifikat 6" class="img-fluid rounded shadow-sm img-hover-zoom" />
+      <p class="text-light mt-2">Sertifikat 6</p>
+    </div>
+    <div class="col text-center">
+      <img src="img/S7.jpg" alt="Sertifikat 7" class="img-fluid rounded shadow-sm img-hover-zoom" />
+      <p class="text-light mt-2">Sertifikat 7</p>
+    </div>
+    <div class="col text-center">
+      <img src="img/S8.jpg" alt="Sertifikat 8" class="img-fluid rounded shadow-sm img-hover-zoom" />
+      <p class="text-light mt-2">Sertifikat 8</p>
+    </div>
+    <div class="col text-center">
+      <img src="img/S9.jpg" alt="Sertifikat 9" class="img-fluid rounded shadow-sm img-hover-zoom" />
+      <p class="text-light mt-2">Sertifikat 9</p>
+    </div>
+    <div class="col text-center">
+      <img src="img/S10.jpg" alt="Sertifikat 10" class="img-fluid rounded shadow-sm img-hover-zoom" />
+      <p class="text-light mt-2">Sertifikat 10</p>
+    </div>
+    <div class="col text-center">
+      <img src="img/S11.jpg" alt="Sertifikat 11" class="img-fluid rounded shadow-sm img-hover-zoom" />
+      <p class="text-light mt-2">Sertifikat 11</p>
+    </div>
+    <div class="col text-center">
+      <img src="img/S12.jpg" alt="Sertifikat 12" class="img-fluid rounded shadow-sm img-hover-zoom" />
+      <p class="text-light mt-2">Sertifikat 12</p>
+    </div>
+    <div class="col text-center">
+      <img src="img/S13.jpg" alt="Sertifikat 13" class="img-fluid rounded shadow-sm img-hover-zoom" />
+      <p class="text-light mt-2">Sertifikat 13</p>
+    </div>
+    <div class="col text-center">
+      <img src="img/S14.jpg" alt="Sertifikat 14" class="img-fluid rounded shadow-sm img-hover-zoom" />
+      <p class="text-light mt-2">Sertifikat 14</p>
+    </div>
+    <div class="col text-center">
+      <img src="img/S15.jpg" alt="Sertifikat 15" class="img-fluid rounded shadow-sm img-hover-zoom" />
+      <p class="text-light mt-2">Sertifikat 15</p>
+    </div>
+  </div>
+</section>
+
+
+</section>
+<section class="container section-card" data-aos="fade-up" id="layanan-pelanggan">
+<h2 class="section-title">Layanan Pelanggan</h2>
+<p>Kami menyediakan layanan pelanggan profesional dan responsif untuk memastikan kepuasan dan dukungan penuh kepada klien kami.</p>
 </section>
 <!-- OUR CLIENT SECTION -->
 <section id="our-client">
