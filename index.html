@@ -12,8 +12,9 @@
   .img-hover-zoom {
   transition: transform 0.3s ease;
 }
-.img-hover-zoom:hover {
-  transform: scale(1.05);
+img.img-hover-zoom {
+  max-height: 200px;
+  object-fit: cover;
 }
 
   * { box-sizing: border-box; }
@@ -90,8 +91,8 @@
     text-align: center;
   }
   #our-client h2 {
-    color: #e30613;
-    font-size: 28px;
+    color: #1e9bee;
+    font-size: 45px;
     font-weight: 700;
     margin-bottom: 40px;
   }
@@ -107,7 +108,7 @@
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    height: 70px;
+    height: 100px;
     width: auto;
     opacity: 0;
     transition: opacity 1s ease-in-out;
@@ -133,7 +134,7 @@
     align-items: flex-start;
   }
   .footer-logo img {
-    max-height: 70px;
+    max-height: 100px;
     object-fit: contain;
   }
   .footer-info {
@@ -261,6 +262,16 @@ body.loaded #preloader {
 
 </style>
 <style>
+  body {
+    /* ... lainnya ... */
+  }
+  img.img-hover-zoom {
+    max-height: 200px;
+    object-fit: cover;
+    width: 100%;
+  }
+</style>
+<style>
 .custom-gallery-carousel {
   max-width: 600px;
   margin: auto;
@@ -276,7 +287,20 @@ body.loaded #preloader {
 .custom-gallery-carousel video {
   background-color: #000;
 }
-</style></head>
+</style>
+<style>
+/* Dropdown on hover */
+.nav-item.dropdown:hover .dropdown-menu {
+  display: block;
+  margin-top: 0;
+}
+
+/* Prevent closing on click inside */
+.dropdown-menu {
+  pointer-events: auto;
+}
+</style>
+</head>
 <body>
 <div class="container mt-4" id="language-selector" style="text-align: right;">
 <label class="form-label text-white" for="language-select">Pilih Bahasa:</label>
@@ -304,13 +328,30 @@ body.loaded #preloader {
 </button>
 <div class="collapse navbar-collapse" id="navbarNav">
 <ul class="navbar-nav ms-auto">
-<li class="nav-item"><a class="nav-link" href="#visi">Visi &amp; Misi</a></li>
-<li class="nav-item"><a class="nav-link" href="#nilai">Nilai</a></li>
-<li class="nav-item"><a class="nav-link" href="#sejarah">Sejarah</a></li>
-<li class="nav-item"><a class="nav-link" href="#struktur">Struktur</a></li>
-<li class="nav-item"><a class="nav-link" href="#bisnis">Bisnis</a></li>
-<li class="nav-item"><a class="nav-link" href="#berita">Berita</a></li>
-<li class="nav-item"><a class="nav-link" href="#kontak">Kontak</a></li>
+<li class="nav-item dropdown">
+<a aria-expanded="false" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" id="profilDropdown" role="button">
+      Profil Perusahaan
+    </a>
+<ul class="dropdown-menu">
+<li><a class="dropdown-item" href="#visi">Visi &amp; Misi</a></li>
+<li><a class="dropdown-item" href="#nilai">Nilai</a></li>
+<li><a class="dropdown-item" href="#sejarah">Sejarah</a></li>
+<li><a class="dropdown-item" href="#struktur">Struktur</a></li>
+<li><a class="dropdown-item" href="#bisnis">Bisnis</a></li>
+<li><a class="dropdown-item" href="#berita">Berita</a></li>
+<li><a class="dropdown-item" href="#kontak">Kontak</a></li>
+</ul>
+</li>
+<li class="nav-item dropdown">
+<a aria-expanded="false" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" id="lainnyaDropdown" role="button">
+      Informasi Tambahan
+    </a>
+<ul class="dropdown-menu">
+<li><a class="dropdown-item" href="lingkungan.html">Lingkungan</a></li>
+<li><a class="dropdown-item" href="produk.html">Produk</a></li>
+<li><a class="dropdown-item" href="kualifikasi.html">Kualifikasi</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
@@ -348,7 +389,7 @@ body.loaded #preloader {
 </section>
 <section class="container section-card" data-aos="fade-up" id="bisnis">
 <h2 class="section-title">Bisnis</h2>
-<p>Bergerak di bidang Pengolahan Air Limbah Industri</p>
+<p>Kimia, Minyak &amp; Gas, Peleburan, Pertambangan, Silikon, Karet, Makanan &amp; Minuman, Farmasi, Pencelupan warna, Tekstil, Energi Baru, Material baru, Komponen otomotif, semikonduktor chip, manufaktur presisi tinggi, pengolahan air limbah domestik perkotaan dan 300 bidang industri lainnya.</p>
 </section>
 <section class="container section-card" data-aos="fade-up" id="berita">
 <h2 class="section-title">Berita Terbaru</h2>
@@ -357,6 +398,15 @@ body.loaded #preloader {
 <section class="container section-card" data-aos="fade-up" id="kontak">
 <h2 class="section-title">Kontak</h2>
 <p>Email: hongsen.environmental@gmail.com<br/>Telepon: +62 2118393335</p>
+</section>
+<section class="container section-card" data-aos="fade-up" id="layanan-pelanggan">
+<h2 class="section-title">Layanan Pelanggan</h2>
+<p>Investasi Dan Konstruksi</p>
+<p>Melayani objek wisata seperti kawasan industri besar, pabrik, perusahaan, serta fasilitas pendukung kehidupan pemerintah kota, dengan membangun sistem dan fasilitas pengolahan limbah industri, gas buang, air limbah domestik yang komprehensif. Bentuk layanan utama mencakup: Produksi - Instalasi - Operasional - Serah Terima - Pemeliharaan Purna Jual.</p>
+<p>Desain Teknis</p>
+<p>Memberikan solusi desain teroptimalisasi dengan mempertimbangkan karakteristik proyek klien dari berbagi industri, proses produksi, standar emisi limbah cair/gas, anggaran investasi.</p>
+<p>Penyediaan Peralatan</p>
+<p>Menyediakan peralatan profesional dan sistem pendukung untuk pengolahan air limbah industri/domestik, sistem air murni industri, pengendalian gas buang, layanan tambahan meliputi instalasi, pengujian, dan layanan purna jual peralatan. </p>
 </section>
 <section class="container section-card" data-aos="fade-up" id="galeri">
 <h2 class="section-title">Berita Perusahaan</h2>
@@ -429,167 +479,21 @@ body.loaded #preloader {
 <span class="visually-hidden">Next</span>
 </button>
 </div>
-</div></section>
-<section class="container section-card" data-aos="fade-up" id="lingkungan">
-  <h2 class="section-title">Lingkungan Perusahaan</h2>
-  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
-    <div class="col text-center">
-      <img src="img/L1.jpg" alt="Lingkungan 1" class="img-fluid rounded shadow-sm img-hover-zoom" />
-      <p class="text-light mt-2">Lingkungan 1</p>
-    </div>
-    <div class="col text-center">
-      <img src="img/L2.jpg" alt="Lingkungan 2" class="img-fluid rounded shadow-sm img-hover-zoom" />
-      <p class="text-light mt-2">Lingkungan 2</p>
-    </div>
-    <div class="col text-center">
-      <img src="img/L3.jpg" alt="Lingkungan 3" class="img-fluid rounded shadow-sm img-hover-zoom" />
-      <p class="text-light mt-2">Lingkungan 3</p>
-    </div>
-    <div class="col text-center">
-      <img src="img/L4.jpg" alt="Lingkungan 4" class="img-fluid rounded shadow-sm img-hover-zoom" />
-      <p class="text-light mt-2">Lingkungan 4</p>
-    </div>
-    <div class="col text-center">
-      <img src="img/L5.jpg" alt="Lingkungan 5" class="img-fluid rounded shadow-sm img-hover-zoom" />
-      <p class="text-light mt-2">Lingkungan 5</p>
-    </div>
-  </div>
-</section>
-<section class="container section-card" data-aos="fade-up" id="display-produk">
-  <h2 class="section-title">Display Produk</h2>
-  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
-    <!-- Tambahkan semua gambar produk berikut pola ini -->
-    <div class="col text-center">
-      <img src="img/DP1.jpg" alt="Produk 1" class="img-fluid rounded shadow-sm img-hover-zoom" />
-      <p class="text-light mt-2">Produk 1</p>
-    </div>
-    <div class="col text-center">
-      <img src="img/DP2.jpg" alt="Produk 2" class="img-fluid rounded shadow-sm img-hover-zoom" />
-      <p class="text-light mt-2">Produk 2</p>
-    </div>
-    <div class="col text-center">
-      <img src="img/DP3.jpg" alt="Produk 3" class="img-fluid rounded shadow-sm img-hover-zoom" />
-      <p class="text-light mt-2">Produk 3</p>
-    </div>
-    <div class="col text-center">
-      <img src="img/DP4.jpg" alt="Produk 4" class="img-fluid rounded shadow-sm img-hover-zoom" />
-      <p class="text-light mt-2">Produk 4</p>
-    </div>
-    <div class="col text-center">
-      <img src="img/DP5.jpg" alt="Produk 5" class="img-fluid rounded shadow-sm img-hover-zoom" />
-      <p class="text-light mt-2">Produk 5</p>
-    </div>
-    <div class="col text-center">
-      <img src="img/DP6.jpg" alt="Produk 6" class="img-fluid rounded shadow-sm img-hover-zoom" />
-      <p class="text-light mt-2">Produk 6</p>
-    </div>
-    <div class="col text-center">
-      <img src="img/dp7.jpg" alt="Produk 7" class="img-fluid rounded shadow-sm img-hover-zoom" />
-      <p class="text-light mt-2">Produk 7</p>
-    </div>
-    <div class="col text-center">
-      <img src="img/DP8.jpg" alt="Produk 8" class="img-fluid rounded shadow-sm img-hover-zoom" />
-      <p class="text-light mt-2">Produk 8</p>
-    </div>
-    <div class="col text-center">
-      <img src="img/DP9.jpg" alt="Produk 9" class="img-fluid rounded shadow-sm img-hover-zoom" />
-      <p class="text-light mt-2">Produk 9</p>
-    </div>
-    <div class="col text-center">
-      <img src="img/DP10.jpg" alt="Produk 10" class="img-fluid rounded shadow-sm img-hover-zoom" />
-      <p class="text-light mt-2">Produk 10</p>
-    </div>
-    <div class="col text-center">
-      <img src="img/DP11.jpg" alt="Produk 11" class="img-fluid rounded shadow-sm img-hover-zoom" />
-      <p class="text-light mt-2">Produk 11</p>
-    </div>
-    <div class="col text-center">
-      <img src="img/DP12.jpg" alt="Produk 12" class="img-fluid rounded shadow-sm img-hover-zoom" />
-      <p class="text-light mt-2">Produk 12</p>
-    </div>
-  </section>
-
-</section>
-<section class="container section-card" data-aos="fade-up" id="kualifikasi">
-  <h2 class="section-title">Kualifikasi Perusahaan</h2>
-  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
-    <div class="col text-center">
-      <img src="img/S1.jpg" alt="Sertifikat 1" class="img-fluid rounded shadow-sm img-hover-zoom" />
-      <p class="text-light mt-2">Sertifikat 1</p>
-    </div>
-    <div class="col text-center">
-      <img src="img/S2.jpg" alt="Sertifikat 2" class="img-fluid rounded shadow-sm img-hover-zoom" />
-      <p class="text-light mt-2">Sertifikat 2</p>
-    </div>
-    <div class="col text-center">
-      <img src="img/S3.jpg" alt="Sertifikat 3" class="img-fluid rounded shadow-sm img-hover-zoom" />
-      <p class="text-light mt-2">Sertifikat 3</p>
-    </div>
-    <div class="col text-center">
-      <img src="img/s4.jpg" alt="Sertifikat 4" class="img-fluid rounded shadow-sm img-hover-zoom" />
-      <p class="text-light mt-2">Sertifikat 4</p>
-    </div>
-    <div class="col text-center">
-      <img src="img/S5.jpg" alt="Sertifikat 5" class="img-fluid rounded shadow-sm img-hover-zoom" />
-      <p class="text-light mt-2">Sertifikat 5</p>
-    </div>
-    <div class="col text-center">
-      <img src="img/S6.jpg" alt="Sertifikat 6" class="img-fluid rounded shadow-sm img-hover-zoom" />
-      <p class="text-light mt-2">Sertifikat 6</p>
-    </div>
-    <div class="col text-center">
-      <img src="img/S7.jpg" alt="Sertifikat 7" class="img-fluid rounded shadow-sm img-hover-zoom" />
-      <p class="text-light mt-2">Sertifikat 7</p>
-    </div>
-    <div class="col text-center">
-      <img src="img/S8.jpg" alt="Sertifikat 8" class="img-fluid rounded shadow-sm img-hover-zoom" />
-      <p class="text-light mt-2">Sertifikat 8</p>
-    </div>
-    <div class="col text-center">
-      <img src="img/S9.jpg" alt="Sertifikat 9" class="img-fluid rounded shadow-sm img-hover-zoom" />
-      <p class="text-light mt-2">Sertifikat 9</p>
-    </div>
-    <div class="col text-center">
-      <img src="img/S10.jpg" alt="Sertifikat 10" class="img-fluid rounded shadow-sm img-hover-zoom" />
-      <p class="text-light mt-2">Sertifikat 10</p>
-    </div>
-    <div class="col text-center">
-      <img src="img/S11.jpg" alt="Sertifikat 11" class="img-fluid rounded shadow-sm img-hover-zoom" />
-      <p class="text-light mt-2">Sertifikat 11</p>
-    </div>
-    <div class="col text-center">
-      <img src="img/S12.jpg" alt="Sertifikat 12" class="img-fluid rounded shadow-sm img-hover-zoom" />
-      <p class="text-light mt-2">Sertifikat 12</p>
-    </div>
-    <div class="col text-center">
-      <img src="img/S13.jpg" alt="Sertifikat 13" class="img-fluid rounded shadow-sm img-hover-zoom" />
-      <p class="text-light mt-2">Sertifikat 13</p>
-    </div>
-    <div class="col text-center">
-      <img src="img/S14.jpg" alt="Sertifikat 14" class="img-fluid rounded shadow-sm img-hover-zoom" />
-      <p class="text-light mt-2">Sertifikat 14</p>
-    </div>
-    <div class="col text-center">
-      <img src="img/S15.jpg" alt="Sertifikat 15" class="img-fluid rounded shadow-sm img-hover-zoom" />
-      <p class="text-light mt-2">Sertifikat 15</p>
-    </div>
-  </div>
-</section>
-
-
-</section>
-<section class="container section-card" data-aos="fade-up" id="layanan-pelanggan">
-<h2 class="section-title">Layanan Pelanggan</h2>
-<p>Kami menyediakan layanan pelanggan profesional dan responsif untuk memastikan kepuasan dan dukungan penuh kepada klien kami.</p>
+</div>
 </section>
 <!-- OUR CLIENT SECTION -->
 <section id="our-client">
-<h2>OUR CLIENT</h2>
+<h2>KLIEN KERJASAMA</h2>
 <div class="client-slider">
 <img alt="Unilever" class="client-slide active" src="img/unilever.png"/>
 <img alt="WIKA" class="client-slide" src="img/wika.png"/>
 <img alt="PERTAMINA" class="client-slide" src="img/pertamina.png"/>
 <img alt="Shell" class="client-slide" src="img/shell.png"/>
+<img alt="Gree" class="client-slide" src="img/OC1.jpg"/>
+<img alt="BaoSteel" class="client-slide" src="img/OC2.jpg"/>
+<img alt="BaoSteel" class="client-slide" src="img/OC3.jpg"/>
+<img alt="BaoSteel" class="client-slide" src="img/OC4.jpg"/>
+<img alt="BaoSteel" class="client-slide" src="img/OC5.jpg"/>
 </div>
 </section>
 <footer>
@@ -615,7 +519,7 @@ body.loaded #preloader {
 <div class="footer-bottom">
 <p>© PT. HONGSEN ENVIRONMENTAL TECHNOLOGY</p>
 </div>
-<a aria-label="Chat WhatsApp" class="whatsapp-float" href="https://wa.me/6281234567890" target="_blank">
+<a aria-label="Chat WhatsApp" class="whatsapp-float" href="https://wa.me/6282118393335" target="_blank">
 <img alt="WhatsApp" class="img-fluid" src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"/>
 </a>
 </footer>
@@ -635,13 +539,7 @@ body.loaded #preloader {
     slides[currentSlide].classList.add('active');
   }
 </script>
-<script>
-  window.addEventListener("load", function () {
-    setTimeout(function () {
-      document.body.classList.add("loaded");
-    }, 3000); // 3 detik
-  });
-</script>
+
 <script>
   // Slideshow untuk OUR CLIENT
   const clientSlides = document.querySelectorAll('.client-slide');
@@ -655,5 +553,23 @@ body.loaded #preloader {
 
   setInterval(showNextClient, 3000); // Ganti gambar setiap 3 detik
 </script>
-</body>
+<script>
+  document.querySelectorAll('.dropdown-menu').forEach(function(menu) {
+    menu.addEventListener('click', function (e) {
+      e.stopPropagation();
+    });
+  });
+</script>
+<script>
+window.addEventListener("load", function () {
+  if (!sessionStorage.getItem("visited")) {
+    setTimeout(function () {
+      document.body.classList.add("loaded");
+      sessionStorage.setItem("visited", "true");
+    }, 3000);
+  } else {
+    document.body.classList.add("loaded");
+  }
+});
+</script></body>
 </html>
