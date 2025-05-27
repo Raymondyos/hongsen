@@ -50,8 +50,19 @@
  </head>
  <body class="text-gray-700">
   <div class="absolute top-4 right-4 z-50">
-   <div class="hidden md:block" id="google_translate_element">
-   </div>
+   <select class="bg-white text-black border border-gray-300 px-2 py-1 rounded shadow-md text-sm" onchange="changeLanguage(this.value)">
+    <option value="id">
+     ID
+    </option>
+    <option value="en">
+     EN
+    </option>
+    <option value="zh-CN">
+     中文
+    </option>
+   </select>
+  </div>
+  <div class="absolute top-4 right-4 z-50">
   </div>
   <header class="fixed top-0 w-full bg-white shadow-md z-50">
    <nav class="flex items-center justify-between max-w-7xl mx-auto px-4 py-3">
@@ -838,6 +849,27 @@
       includedLanguages: 'id,en,zh-CN',
       layout: google.translate.TranslateElement.InlineLayout.SIMPLE
     }, 'google_translate_element');
+  }
+  </script>
+  <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" type="text/javascript">
+  </script>
+  <div id="google_translate_element" style="display:none;">
+  </div>
+  <script type="text/javascript">
+   function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+      pageLanguage: 'id',
+      includedLanguages: 'id,en,zh-CN',
+      layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+    }, 'google_translate_element');
+  }
+
+  function changeLanguage(lang) {
+    var select = document.querySelector(".goog-te-combo");
+    if (select) {
+      select.value = lang;
+      select.dispatchEvent(new Event("change"));
+    }
   }
   </script>
   <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" type="text/javascript">
