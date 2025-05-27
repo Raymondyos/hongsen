@@ -48,76 +48,42 @@
   <script src="https://cdn.jsdelivr.net/npm/lightbox2@2.11.4/dist/js/lightbox-plus-jquery.min.js">
   </script>
  </head>
- <body class="text-gray-700">
-  <div class="hidden" id="google_translate_element">
-  </div>
-  <div class="absolute top-4 right-4 z-50" id="custom-language-switcher">
-   <select class="bg-white text-black border border-gray-300 px-2 py-1 rounded shadow-md text-sm" onchange="changeLanguage(this.value)">
-    <option disabled="" selected="">
-     🌐 Language
-    </option>
-    <option value="id">
-     ID
-    </option>
-    <option value="en">
-     EN
-    </option>
-    <option value="zh-CN">
-     中文
-    </option>
-   </select>
-  </div>
-  <header class="fixed top-0 w-full bg-white shadow-md z-50">
-   <nav class="flex items-center justify-between max-w-7xl mx-auto px-4 py-3">
-    <a class="flex items-center" href="#">
-     <img alt="Logo" class="h-10" src="img/logo-hongsen.png"/>
-     <span class="ml-3 font-bold text-lg text-blue-600">
-      HONGSEN ENVIRONMENTAL TECHNOLOGY
-     </span>
-    </a>
-    <button class="md:hidden text-gray-700 focus:outline-none" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
-     <svg class="h-6 w-6" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-      <path d="M4 6h16M4 12h16M4 18h16" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
-      </path>
-     </svg>
-    </button>
-    <div class="hidden md:flex space-x-6">
-     <a class="text-gray-600 hover:text-blue-600 font-medium transition-colors" href="#visi">
+ <body class="text-gray-800 bg-white font-sans leading-relaxed">
+  <header class="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-transparent text-white" id="mainHeader">
+   <div class="flex justify-between items-center max-w-7xl mx-auto px-4 py-3">
+    <img alt="Logo Kiri" class="h-12 md:h-14" src="img/logo-hongsen.png"/>
+    <nav class="hidden md:flex items-center space-x-6 text-sm font-semibold uppercase">
+     <a class="text-white nav-link" href="#visi">
       Visi
      </a>
-     <a class="text-gray-600 hover:text-blue-600 font-medium transition-colors" href="#nilai">
+     <a class="text-white nav-link" href="#nilai">
       Nilai
      </a>
-     <a class="text-gray-600 hover:text-blue-600 font-medium transition-colors" href="#sejarah">
+     <a class="text-white nav-link" href="#profil">
       Profil
      </a>
-     <a class="text-gray-600 hover:text-blue-600 font-medium transition-colors" href="#struktur">
+     <a class="text-white nav-link" href="#struktur">
       Struktur
      </a>
-     <a class="text-gray-600 hover:text-blue-600 font-medium transition-colors" href="#kontak">
-      Kontak
+     <a class="text-white nav-link" href="#kontak">
+      Kontrak
      </a>
-    </div>
-   </nav>
-   <div class="md:hidden hidden px-4 pb-4 space-y-3 bg-white shadow-md" id="mobile-menu">
-    <a class="block py-2 text-gray-700 hover:text-blue-600 transition-colors" href="#visi">
-     Visi
-    </a>
-    <a class="block py-2 text-gray-700 hover:text-blue-600 transition-colors" href="#nilai">
-     Nilai
-    </a>
-    <a class="block py-2 text-gray-700 hover:text-blue-600 transition-colors" href="#sejarah">
-     Profil
-    </a>
-    <a class="block py-2 text-gray-700 hover:text-blue-600 transition-colors" href="#struktur">
-     Struktur
-    </a>
-    <a class="block py-2 text-gray-700 hover:text-blue-600 transition-colors" href="#kontak">
-     Kontak
-    </a>
+     <select class="text-black px-2 py-1 rounded text-sm" onchange="changeLanguage(this.value)">
+      <option value="id">
+       ID
+      </option>
+      <option value="en">
+       EN
+      </option>
+      <option value="zh-CN">
+       中文
+      </option>
+     </select>
+    </nav>
+    <img alt="Logo Kanan" class="h-12 md:h-14" src="img/logo-hongsen.png"/>
    </div>
   </header>
-  <section class="relative h-[70vh] flex items-center justify-center text-center mt-16 overflow-x-auto">
+  <section class="2 3 items-center bg-cover h-[70vh] flex overflow-x-auto p t h-screen text-center - justify-center relative bg-center mt-16" style="background-image: url('img/background.png');">
    <div class="absolute inset-0 bg-[url('img/background.png')] bg-cover bg-center brightness-50">
    </div>
    <div class="relative z-10 px-4 max-w-6xl text-white">
@@ -133,7 +99,7 @@
    </div>
   </section>
   <div class="max-w-6xl mx-auto px-4 py-12">
-   <section class="bg-white rounded-xl shadow-sm p-8 mb-8 card" id="visi">
+   <section class="bg-blue-50 card rounded-xl mb-8 p-8 bg-white shadow-sm" id="visi">
     <h2 class="text-2xl font-semibold text-blue-600 mb-4">
      Visi &amp; Misi
     </h2>
@@ -156,7 +122,7 @@
      </div>
     </div>
    </section>
-   <section class="bg-white rounded-xl shadow-sm p-8 mb-8 card" id="nilai">
+   <section class="bg-green-50 card rounded-xl mb-8 p-8 bg-white shadow-sm" id="nilai">
     <h2 class="text-2xl font-semibold text-blue-600 mb-6">
      Nilai Perusahaan
     </h2>
@@ -243,7 +209,7 @@
      </li>
     </ul>
    </section>
-   <section class="bg-white rounded-xl shadow-sm p-8 mb-8 card" id="sejarah">
+   <section class="card rounded-xl mb-8 p-8 bg-white shadow-sm" id="sejarah">
     <h2 class="text-2xl font-semibold text-blue-600 mb-6">
      Profil Perusahaan
     </h2>
@@ -270,7 +236,7 @@
      </div>
     </div>
    </section>
-   <div class="mt-10" id="produk-beranda">
+   <div class="mt-10 bg-gray-50" id="produk-beranda">
     <h3 class="text-xl font-semibold text-blue-600 mb-4">
      Produk Unggulan
     </h3>
@@ -326,7 +292,7 @@
      </video>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-     <section class="bg-white rounded-xl shadow-sm p-8 card" id="struktur">
+     <section class="bg-slate-100 card rounded-xl p-8 bg-white shadow-sm" id="struktur">
       <h2 class="text-2xl font-semibold text-blue-600 mb-4">
        Struktur Organisasi
       </h2>
@@ -334,7 +300,7 @@
        Struktur organisasi terdiri dari direksi, komisaris, dan divisi strategis.
       </p>
      </section>
-     <section class="bg-white rounded-xl shadow-sm p-8 card" id="bisnis">
+     <section class="bg-slate-100 card rounded-xl p-8 bg-white shadow-sm" id="bisnis">
       <h2 class="text-2xl font-semibold text-blue-600 mb-4">
        Bidang Bisnis
       </h2>
@@ -470,7 +436,7 @@
       </ul>
      </section>
     </div>
-    <section class="bg-white rounded-xl shadow-sm p-8 mb-8 card" id="kualifikasi">
+    <section class="bg-indigo-50 card rounded-xl mb-8 p-8 bg-white shadow-sm" id="kualifikasi">
      <h2 class="text-2xl font-semibold text-blue-600 mb-6">
       Kualifikasi Perusahaan
      </h2>
@@ -530,7 +496,7 @@
       </div>
      </div>
     </section>
-    <section class="bg-white rounded-xl shadow-sm p-8 mb-8 card" id="klien">
+    <section class="bg-blue-900 card rounded-xl mb-8 p-8 bg-white text-white shadow-sm" id="klien">
      <h2 class="text-2xl font-semibold text-blue-600 mb-6">
       Klien Bersama
      </h2>
@@ -592,7 +558,7 @@
      </div>
     </section>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-     <section class="bg-white rounded-xl shadow-sm p-8 card" id="kontak">
+     <section class="card rounded-xl p-8 bg-white bg-green-100 shadow-sm" id="kontak">
       <h2 class="text-2xl font-semibold text-blue-600 mb-4">
        Hubungi Kami
       </h2>
@@ -668,7 +634,7 @@
        </div>
       </div>
      </section>
-     <section class="bg-white rounded-xl shadow-sm p-8 card" id="layanan-pelanggan">
+     <section class="card rounded-xl p-8 bg-white bg-green-100 shadow-sm" id="layanan-pelanggan">
       <h2 class="text-2xl font-semibold text-blue-600 mb-4">
        Layanan Pelanggan
       </h2>
@@ -845,29 +811,27 @@
   }
    </script>
   </div>
-  <script type="text/javascript">
-   function googleTranslateElementInit() {
-    new google.translate.TranslateElement({
-      pageLanguage: 'id',
-      includedLanguages: 'id,en,zh-CN',
-      layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-    }, 'google_translate_element');
-  }
+  <script>
+   window.addEventListener('scroll', function () {
+    const header = document.getElementById('mainHeader');
+    const links = document.querySelectorAll('.nav-link');
 
-  function changeLanguage(lang) {
-    function trySetLang() {
-      var combo = document.querySelector(".goog-te-combo");
-      if (combo) {
-        combo.value = lang;
-        combo.dispatchEvent(new Event("change"));
-      } else {
-        setTimeout(trySetLang, 300);
-      }
+    if (window.scrollY > 50) {
+      header.classList.remove('bg-transparent', 'text-white');
+      header.classList.add('bg-white', 'text-gray-900', 'shadow');
+      links.forEach(link => {
+        link.classList.remove('text-white');
+        link.classList.add('text-black');
+      });
+    } else {
+      header.classList.remove('bg-white', 'text-gray-900', 'shadow');
+      header.classList.add('bg-transparent', 'text-white');
+      links.forEach(link => {
+        link.classList.remove('text-black');
+        link.classList.add('text-white');
+      });
     }
-    trySetLang();
-  }
-  </script>
-  <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" type="text/javascript">
+  });
   </script>
  </body>
 </html>
