@@ -49,38 +49,37 @@
   </script>
  </head>
  <body class="text-gray-800 bg-white font-sans leading-relaxed">
-  <header class="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-transparent text-white" id="mainHeader">
-   <div class="flex justify-between items-center max-w-7xl mx-auto px-4 py-3">
-    <img alt="Logo Kiri" class="h-12 md:h-14" src="img/logo-hongsen.png"/>
-    <nav class="hidden md:flex items-center space-x-6 text-sm font-semibold uppercase">
-     <a class="text-white nav-link" href="#visi">
+  <header class="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-transparent text-white backdrop-blur-md shadow" id="mainHeader">
+   <div class="flex items-center justify-between max-w-7xl mx-auto px-4 py-3 space-x-6">
+    <img alt="Logo" class="h-12 md:h-14" src="img/logo-hongsen.png"/>
+    <nav class="flex-1 flex justify-center space-x-6 text-sm font-semibold uppercase">
+     <a class="hover:text-blue-300 duration-300 transition text-white nav-link" href="#visi">
       Visi
      </a>
-     <a class="text-white nav-link" href="#nilai">
+     <a class="hover:text-blue-300 duration-300 transition text-white nav-link" href="#nilai">
       Nilai
      </a>
-     <a class="text-white nav-link" href="#profil">
+     <a class="hover:text-blue-300 duration-300 transition text-white nav-link" href="#profil">
       Profil
      </a>
-     <a class="text-white nav-link" href="#struktur">
+     <a class="hover:text-blue-300 duration-300 transition text-white nav-link" href="#struktur">
       Struktur
      </a>
-     <a class="text-white nav-link" href="#kontak">
+     <a class="hover:text-blue-300 duration-300 transition text-white nav-link" href="#kontak">
       Kontrak
      </a>
-     <select class="text-black px-2 py-1 rounded text-sm" onchange="changeLanguage(this.value)">
-      <option value="id">
-       ID
-      </option>
-      <option value="en">
-       EN
-      </option>
-      <option value="zh-CN">
-       中文
-      </option>
-     </select>
     </nav>
-    <img alt="Logo Kanan" class="h-12 md:h-14" src="img/logo-hongsen.png"/>
+    <select class="text-sm text-black px-2 py-1 rounded shadow-sm focus:outline-none" onchange="changeLanguage(this.value)">
+     <option value="id">
+      ID
+     </option>
+     <option value="en">
+      EN
+     </option>
+     <option value="zh-CN">
+      中文
+     </option>
+    </select>
    </div>
   </header>
   <section class="2 3 items-center bg-cover h-[70vh] flex overflow-x-auto p t h-screen text-center - justify-center relative bg-center mt-16" style="background-image: url('img/background.png');">
@@ -815,19 +814,18 @@
    window.addEventListener('scroll', function () {
     const header = document.getElementById('mainHeader');
     const links = document.querySelectorAll('.nav-link');
-
     if (window.scrollY > 50) {
       header.classList.remove('bg-transparent', 'text-white');
       header.classList.add('bg-white', 'text-gray-900', 'shadow');
       links.forEach(link => {
         link.classList.remove('text-white');
-        link.classList.add('text-black');
+        link.classList.add('text-gray-800');
       });
     } else {
       header.classList.remove('bg-white', 'text-gray-900', 'shadow');
       header.classList.add('bg-transparent', 'text-white');
       links.forEach(link => {
-        link.classList.remove('text-black');
+        link.classList.remove('text-gray-800');
         link.classList.add('text-white');
       });
     }
