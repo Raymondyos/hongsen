@@ -49,8 +49,13 @@
   </script>
  </head>
  <body class="text-gray-700">
-  <div class="absolute top-4 right-4 z-50">
+  <div class="hidden" id="google_translate_element">
+  </div>
+  <div class="absolute top-4 right-4 z-50" id="custom-language-switcher">
    <select class="bg-white text-black border border-gray-300 px-2 py-1 rounded shadow-md text-sm" onchange="changeLanguage(this.value)">
+    <option disabled="" selected="">
+     🌐 Language
+    </option>
     <option value="id">
      ID
     </option>
@@ -61,8 +66,6 @@
      中文
     </option>
    </select>
-  </div>
-  <div class="absolute top-4 right-4 z-50">
   </div>
   <header class="fixed top-0 w-full bg-white shadow-md z-50">
    <nav class="flex items-center justify-between max-w-7xl mx-auto px-4 py-3">
@@ -842,10 +845,6 @@
   }
    </script>
   </div>
-  <div id="google_translate_element" style="display:none;">
-  </div>
-  <div id="google_translate_element" style="display:none;">
-  </div>
   <script type="text/javascript">
    function googleTranslateElementInit() {
     new google.translate.TranslateElement({
@@ -856,16 +855,16 @@
   }
 
   function changeLanguage(lang) {
-    const tryChange = () => {
-      const select = document.querySelector(".goog-te-combo");
-      if (select) {
-        select.value = lang;
-        select.dispatchEvent(new Event("change"));
+    function trySetLang() {
+      var combo = document.querySelector(".goog-te-combo");
+      if (combo) {
+        combo.value = lang;
+        combo.dispatchEvent(new Event("change"));
       } else {
-        setTimeout(tryChange, 300);
+        setTimeout(trySetLang, 300);
       }
-    };
-    tryChange();
+    }
+    trySetLang();
   }
   </script>
   <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" type="text/javascript">
