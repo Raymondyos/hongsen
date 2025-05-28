@@ -8,38 +8,284 @@
   </title>
   <script src="https://cdn.tailwindcss.com">
   </script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+  <!-- Tambahkan font modern dan profesional -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet"/>
   <style>
    body {
-      font-family: 'Inter', sans-serif;
-      background-color: #f8fafc;
+      /* Gunakan font modern dan profesional */
+      font-family: 'Plus Jakarta Sans', 'Outfit', 'Poppins', 'Inter', sans-serif;
+      background: linear-gradient(135deg, #f8fafc 0%, #e0e7ef 100%);
+      min-height: 100vh;
+      color: #22223b;
     }
     .hero-section {
-      background: linear-gradient(rgba(0, 82, 147, 0.8), rgba(0, 82, 147, 0.8)), url('img/background.png');
+      background: linear-gradient(120deg, #f1f5ff 0%, #e0e7ef 100%), url('img/background.png');
+      background-blend-mode: lighten;
       background-size: cover;
       background-position: center;
+      box-shadow: 0 12px 48px 0 rgba(56, 189, 248, 0.10), 0 1.5px 0 #38bdf8 inset;
+      border-radius: 0 0 2.5rem 2.5rem;
+      position: relative;
+      overflow: hidden;
+      min-height: 70vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      /* Efek glass morphism */
+      backdrop-filter: blur(3px);
+      animation: heroFadeIn 1.2s cubic-bezier(.4,2,.6,1);
+    }
+    @keyframes heroFadeIn {
+      from { opacity: 0; transform: translateY(-40px);}
+      to { opacity: 1; transform: none;}
+    }
+    .hero-section::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 70% 30%, #a5d8ff88 0%, transparent 70%), linear-gradient(120deg, #38bdf822 0%, #6366f122 100%);
+      z-index: 1;
+      pointer-events: none;
+    }
+    .glass {
+      background: rgba(255,255,255,0.96);
+      box-shadow: 0 8px 32px 0 rgba(56,189,248,0.08), 0 1.5px 0 #38bdf8 inset;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border-radius: 2rem;
+      border: 1.5px solid #c7d2fe;
     }
     .card {
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      transition: transform 0.3s cubic-bezier(.4,2,.6,1), box-shadow 0.3s;
+      border-radius: 2rem;
+      border: 1.5px solid #c7d2fe;
+      background: linear-gradient(120deg, #f8fafc 80%, #e0e7ef 100%);
+      box-shadow: 0 8px 32px 0 rgba(56,189,248,0.08), 0 1.5px 0 #38bdf8 inset;
+      color: #22223b;
+      /* Efek hover card */
+      position: relative;
+      overflow: hidden;
     }
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+    .card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: linear-gradient(120deg, #38bdf81a 0%, #6366f11a 100%), repeating-linear-gradient(135deg, #38bdf822 0 2px, transparent 2px 8px);
+      opacity: 0;
+      transition: opacity 0.3s;
+      z-index: 0;
     }
-    .img-center {
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
-      max-width: 100%;
-      height: auto;
-      border-radius: 8px;
-      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    .card:hover::after {
+      opacity: 1;
+    }
+    .card h2, .card h3 {
+      color: #1e293b;
+      letter-spacing: 0.5px;
+      font-family: 'Outfit', 'Plus Jakarta Sans', 'Poppins', 'Inter', sans-serif;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-shadow: 0 2px 8px #e0e7ef44;
+    }
+    .card p, .card li, .card ul {
+      color: #475569;
+      font-size: 1.05rem;
+      line-height: 1.7;
+    }
+    .img-center, .rounded-lg, .shadow-sm {
+      transition: transform 0.3s cubic-bezier(.4,2,.6,1), box-shadow 0.3s;
+      border-radius: 1.25rem;
+      box-shadow: 0 4px 24px 0 #38bdf822;
+    }
+    .img-center:hover, .rounded-lg:hover, .shadow-sm:hover {
+      transform: scale(1.05) rotate(-1deg);
+      box-shadow: 0 12px 40px 0 #38bdf8cc, 0 2px 0 #6366f1 inset;
+      filter: brightness(1.08) saturate(1.1);
     }
     .whatsapp-button {
-      transition: transform 0.2s ease;
+      transition: transform 0.2s cubic-bezier(.4,2,.6,1), box-shadow 0.2s;
+      box-shadow: 0 0 32px #38bdf8cc, 0 2px 0 #6366f1 inset;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #38bdf8 0%, #22d3ee 100%);
+      border: 2px solid #38bdf8;
     }
     .whatsapp-button:hover {
-      transform: scale(1.1);
+      transform: scale(1.13) rotate(4deg);
+      box-shadow: 0 0 48px #38bdf8cc, 0 2px 0 #6366f1 inset;
+      background: linear-gradient(135deg, #22d3ee 0%, #38bdf8 100%);
+      filter: brightness(1.1);
+    }
+    .neon-title {
+      background: linear-gradient(90deg, #38bdf8 0%, #6366f1 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      /* Soft shadow, no glow animation */
+      text-shadow:
+        0 2px 8px #38bdf866,
+        0 1px 0 #ffffffcc;
+      letter-spacing: 2px;
+      font-family: 'Outfit', 'Plus Jakarta Sans', 'Poppins', 'Inter', sans-serif;
+      font-weight: 700;
+      font-size: 2.2rem;
+      filter: brightness(1.05) contrast(1.05);
+      /* animation: neonGlow 2.5s infinite alternate; -- dihapus */
+    }
+    /* @keyframes neonGlow { ... } -- dihapus */
+    .neon-btn {
+      background: linear-gradient(90deg, #38bdf8 0%, #6366f1 100%);
+      color: #fff;
+      border: 2px solid #38bdf8;
+      border-radius: 9999px;
+      padding: 0.7rem 2rem;
+      font-weight: 600;
+      box-shadow: 0 0 24px #38bdf8cc;
+      transition: box-shadow 0.2s, transform 0.2s, background 0.2s;
+      font-family: 'Plus Jakarta Sans', 'Outfit', 'Poppins', 'Inter', sans-serif;
+      letter-spacing: 1px;
+    }
+    .neon-btn:hover {
+      box-shadow: 0 0 48px #6366f1, 0 0 24px #38bdf8;
+      transform: scale(1.09);
+      background: linear-gradient(90deg, #6366f1 0%, #38bdf8 100%);
+    }
+    .swiper-slide img, .swiper-slide video {
+      border-radius: 1.25rem;
+      box-shadow: 0 4px 24px #38bdf822;
+    }
+    .swiper-slide img:hover, .swiper-slide video:hover {
+      box-shadow: 0 8px 40px #6366f199;
+      filter: brightness(1.08) saturate(1.1);
+    }
+    .swiper-button-next, .swiper-button-prev {
+      color: #38bdf8 !important;
+      filter: drop-shadow(0 0 8px #6366f1);
+      font-size: 2rem !important;
+      background: #fff !important;
+      border-radius: 50%;
+      box-shadow: 0 2px 12px #38bdf822;
+      padding: 0.5rem;
+      opacity: 0.85;
+      transition: background 0.2s, opacity 0.2s;
+    }
+    .swiper-button-next:hover, .swiper-button-prev:hover {
+      background: #38bdf8 !important;
+      color: #fff !important;
+      opacity: 1;
+    }
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInUp 1.2s cubic-bezier(.4,2,.6,1) forwards;
+    }
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: none;
+      }
+    }
+    .ripple {
+      position: relative;
+      overflow: hidden;
+    }
+    .ripple:after {
+      content: "";
+      display: block;
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+      width: 100px;
+      height: 100px;
+      top: 50%;
+      left: 50%;
+      background: rgba(56,189,248,0.13);
+      transform: translate(-50%, -50%) scale(0);
+      animation: ripple 0.6s linear;
+    }
+    @keyframes ripple {
+      to {
+        transform: translate(-50%, -50%) scale(2.5);
+        opacity: 0;
+      }
+    }
+    /* Modal Video Modern */
+    #videoModal {
+      background: rgba(240, 249, 255, 0.97);
+      backdrop-filter: blur(10px);
+    }
+    #modalVideo {
+      box-shadow: 0 0 32px #38bdf8cc, 0 0 8px #6366f1;
+      border-radius: 1.5rem;
+      border: 2px solid #38bdf8;
+    }
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+      background: #e0e7ef;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: linear-gradient(90deg, #38bdf8 0%, #6366f1 100%);
+      border-radius: 8px;
+    }
+    /* Tambahan untuk warna teks section dan navigasi */
+    .text-section {
+      color: #22223b;
+    }
+    .text-secondary {
+      color: #6366f1;
+    }
+    .text-highlight {
+      background: linear-gradient(90deg, #38bdf8 0%, #6366f1 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 600;
+    }
+    .nav-link {
+      color: #22223b !important;
+      transition: color 0.2s;
+      font-family: 'Plus Jakarta Sans', 'Outfit', 'Poppins', 'Inter', sans-serif;
+      font-weight: 700;
+      letter-spacing: 1px;
+      font-size: 1.05rem;
+      padding: 0.25rem 0.75rem;
+      border-radius: 0.75rem;
+      transition: background 0.2s, color 0.2s;
+    }
+    .nav-link:hover, .nav-link.active {
+      color: #fff !important;
+      background: linear-gradient(90deg, #38bdf8 0%, #6366f1 100%);
+      text-shadow: 0 0 8px #38bdf8;
+    }
+    /* Perbaiki warna pada section dengan bg putih */
+    .bg-white, .bg-slate-100, .bg-green-100, .bg-indigo-50, .bg-blue-900 {
+      background: #fff !important;
+      color: #22223b !important;
+    }
+    .bg-white h2, .bg-white h3, .bg-slate-100 h2, .bg-slate-100 h3 {
+      color: #1e293b !important;
+    }
+    .bg-white p, .bg-slate-100 p {
+      color: #475569 !important;
+    }
+    footer {
+      background: linear-gradient(90deg, #e0e7ef 0%, #f1f5ff 100%);
+      color: #475569;
+      font-family: 'Plus Jakarta Sans', 'Outfit', 'Poppins', 'Inter', sans-serif;
+      border-radius: 2rem 2rem 0 0;
+      box-shadow: 0 -4px 32px 0 #38bdf822;
+      margin-top: 3rem;
+      padding-top: 2.5rem;
+    }
+    footer h3 {
+      color: #22223b;
+      font-family: 'Outfit', 'Plus Jakarta Sans', 'Poppins', 'Inter', sans-serif;
+    }
+    footer a {
+      color: #6366f1;
+      font-weight: 500;
+    }
+    footer a:hover {
+      color: #38bdf8;
+      text-decoration: underline;
     }
   </style>
   <link href="https://unpkg.com/swiper/swiper-bundle.min.css" rel="stylesheet"/>
@@ -48,30 +294,30 @@
   <script src="https://cdn.jsdelivr.net/npm/lightbox2@2.11.4/dist/js/lightbox-plus-jquery.min.js">
   </script>
  </head>
- <body class="text-gray-800 bg-white font-sans leading-relaxed">
-  <header class="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-transparent text-white backdrop-blur-md shadow" id="mainHeader">
-   <div class="flex items-center justify-between max-w-7xl mx-auto px-4 py-3 space-x-6">
-   <a href="#">
-  <img alt="Logo" class="h-12 md:h-14" src="img/logo-hongsen.png"/>
-</a>
+ <body class="text-gray-200 bg-transparent font-sans leading-relaxed">
+  <header class="fixed top-0 left-0 w-full z-50 transition-all duration-300 glass text-white shadow-lg" id="mainHeader">
+    <div class="flex items-center justify-between max-w-7xl mx-auto px-4 py-3 space-x-6">
+    <a href="#" class="ripple">
+      <img alt="Logo" class="h-12 md:h-14 drop-shadow-lg" src="img/logo-hongsen.png"/>
+    </a>
     <nav class="flex-1 flex justify-center space-x-6 text-sm font-semibold uppercase">
-     <a class="hover:text-blue-300 duration-300 transition text-white nav-link" href="#visi">
+     <a id="navVisi" class="hover:text-cyan-400 duration-300 transition text-white nav-link" href="#visi">
       Visi
      </a>
-     <a class="hover:text-blue-300 duration-300 transition text-white nav-link" href="#nilai">
+     <a id="navNilai" class="hover:text-cyan-400 duration-300 transition text-white nav-link" href="#nilai">
       Nilai
      </a>
-     <a class="hover:text-blue-300 duration-300 transition text-white nav-link" href="#profil">
+     <a id="navProfil" class="hover:text-cyan-400 duration-300 transition text-white nav-link" href="#profil">
       Profil
      </a>
-     <a class="hover:text-blue-300 duration-300 transition text-white nav-link" href="#struktur">
+     <a id="navStruktur" class="hover:text-cyan-400 duration-300 transition text-white nav-link" href="#struktur">
       Struktur
      </a>
-     <a class="hover:text-blue-300 duration-300 transition text-white nav-link" href="#kontak">
+     <a id="navKontak" class="hover:text-cyan-400 duration-300 transition text-white nav-link" href="#kontak">
       Kontrak
      </a>
     </nav>
-    <select class="text-sm text-black px-2 py-1 rounded shadow-sm focus:outline-none" onchange="changeLanguage(this.value)">
+    <select class="text-sm text-black px-2 py-1 rounded shadow-sm focus:outline-none glass" onchange="changeLanguage(this.value)">
      <option value="id">
       ID
      </option>
@@ -84,47 +330,48 @@
     </select>
    </div>
   </header>
-  <section class="2 3 items-center bg-cover h-[70vh] flex overflow-x-auto p t h-screen text-center - justify-center relative bg-center mt-16" style="background-image: url('img/background.png');">
-   <div class="absolute inset-0 bg-[url('img/background.png')] bg-cover bg-center brightness-50">
-   </div>
+  <section class="hero-section flex items-center justify-center h-[70vh] text-center relative bg-center mt-16 fade-in">
+   <div class="absolute inset-0 bg-[url('img/background.png')] bg-cover bg-center brightness-50 rounded-b-3xl"></div>
    <div class="relative z-10 px-4 max-w-6xl text-white">
     <div class="flex items-center gap-4 whitespace-nowrap flex-nowrap justify-center">
-     <img alt="Logo Hongsen" class="h-10 md:h-14 flex-shrink-0" src="img/logo-hongsen.png"/>
-     <span class="text-2xl md:text-4xl font-bold leading-tight text-white">
-      PT. Hongsen Environment Protection Technology Ltd.
+     <img alt="Logo Hongsen" class="h-10 md:h-14 flex-shrink-0 drop-shadow-lg" src="img/logo-hongsen.png"/>
+     <span class="text-2xl md:text-4xl font-bold leading-tight neon-title">
+      <span class="text-4xl md:text-6xl" id="heroTitle">
+      PT.Hongsen Environment Protection Technology Ltd.
+      </span>
      </span>
     </div>
-    <p class="text-lg md:text-xl mt-4">
+    <p id="heroSubtitle" class="text-lg md:text-xl mt-4 neon-title">
      ~ YOUR WATER SOLUTION ~
     </p>
    </div>
   </section>
   <div class="max-w-6xl mx-auto px-4 py-12">
-   <section class="bg-blue-50 card rounded-xl mb-8 p-8 bg-white shadow-sm" id="visi">
-    <h2 class="text-2xl font-semibold text-blue-600 mb-4">
+   <section class="glass card rounded-xl mb-8 p-8 shadow-sm fade-in" id="visi">
+    <h2 id="visiMisi" class="text-2xl font-semibold neon-title mb-4">
      Visi &amp; Misi
     </h2>
     <div class="space-y-4">
      <div>
-      <h3 class="font-medium text-lg text-gray-800">
+      <h3 id="visiTitle" class="font-medium text-lg text-gray-800">
        Visi:
       </h3>
-      <p class="text-gray-600">
+      <p id="visiDesc" class="text-gray-600">
        Menjadi perusahaan energi nasional kelas dunia.
       </p>
      </div>
      <div>
-      <h3 class="font-medium text-lg text-gray-800">
+      <h3 id="misiTitle" class="font-medium text-lg text-gray-800">
        Misi:
       </h3>
-      <p class="text-gray-600">
+      <p id="misiDesc" class="text-gray-600">
        Menyediakan energi berkelanjutan yang ramah lingkungan untuk masa depan.
       </p>
      </div>
     </div>
    </section>
-   <section class="bg-green-50 card rounded-xl mb-8 p-8 bg-white shadow-sm" id="nilai">
-    <h2 class="text-2xl font-semibold text-blue-600 mb-6">
+   <section class="glass card rounded-xl mb-8 p-8 shadow-sm fade-in" id="nilai">
+    <h2 id="nilaiPerusahaan" class="text-2xl font-semibold neon-title mb-6">
      Nilai Perusahaan
     </h2>
     <ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -136,10 +383,10 @@
        </svg>
       </div>
       <div>
-       <h3 class="font-medium text-gray-800">
+       <h3 id="nilai1Title" class="font-medium text-gray-800">
         Integritas
        </h3>
-       <p class="text-gray-600 text-sm">
+       <p id="nilai1Desc" class="text-gray-600 text-sm">
         Bertindak jujur dan konsisten dalam semua aspek bisnis
        </p>
       </div>
@@ -152,10 +399,10 @@
        </svg>
       </div>
       <div>
-       <h3 class="font-medium text-gray-800">
+       <h3 id="nilai2Title" class="font-medium text-gray-800">
         Profesionalisme
        </h3>
-       <p class="text-gray-600 text-sm">
+       <p id="nilai2Desc" class="text-gray-600 text-sm">
         Standar tinggi dalam pelayanan dan operasional
        </p>
       </div>
@@ -168,10 +415,10 @@
        </svg>
       </div>
       <div>
-       <h3 class="font-medium text-gray-800">
+       <h3 id="nilai3Title" class="font-medium text-gray-800">
         Inovasi
        </h3>
-       <p class="text-gray-600 text-sm">
+       <p id="nilai3Desc" class="text-gray-600 text-sm">
         Terus mengembangkan solusi terdepan
        </p>
       </div>
@@ -184,10 +431,10 @@
        </svg>
       </div>
       <div>
-       <h3 class="font-medium text-gray-800">
+       <h3 id="nilai4Title" class="font-medium text-gray-800">
         Keamanan
        </h3>
-       <p class="text-gray-600 text-sm">
+       <p id="nilai4Desc" class="text-gray-600 text-sm">
         Prioritaskan keselamatan dalam setiap aspek
        </p>
       </div>
@@ -200,7 +447,7 @@
        </svg>
       </div>
       <div>
-       <h3 class="font-medium text-gray-800">
+       <h3 id="nilai5Title" class="font-medium text-gray-800">
         Keunggulan
        </h3>
        <p class="text-gray-600 text-sm">
@@ -210,15 +457,15 @@
      </li>
     </ul>
    </section>
-   <section class="card rounded-xl mb-8 p-8 bg-white shadow-sm" id="sejarah">
-    <h2 class="text-2xl font-semibold text-blue-600 mb-6">
+   <section class="glass card rounded-xl mb-8 p-8 shadow-sm fade-in" id="sejarah">
+    <h2 id="profilPerusahaan" class="text-2xl font-semibold neon-title mb-6">
      Profil Perusahaan
     </h2>
     <div class="space-y-6">
-     <p class="text-gray-600">
+     <p id="profil1" class="text-gray-600">
       Shenzhen Hongsen Environmental Protection Technology Co., Ltd. secara resmi memasuki industri perlindungan lingkungan pada tahun 2015 dengan modal terdaftar disetor sebesar 41 juta. Ini adalah perusahaan perlindungan lingkungan komprehensif yang mengintegrasikan peralatan pengolahan limbah, peralatan pengolahan gas limbah, peralatan air murni industri, dll. Ini adalah perusahaan teknologi tinggi nasional dan perusahaan perangkat lunak ganda dengan banyak paten teknis dan hak cipta perangkat lunak. Ini adalah unit anggota Asosiasi Perlindungan Lingkungan Shenzhen dan salah satu produsen peralatan perlindungan lingkungan pertama yang memiliki reputasi kesehatan tingkat A di Provinsi Guangdong.
      </p>
-     <p class="text-gray-600">
+     <p id="profil2" class="text-gray-600">
       Setelah bertahun-tahun berkembang, perusahaan ini berakar di China, melayani Asia, dan menghadapi dunia. Perusahaan ini memiliki banyak teknologi pengolahan air domestik dan internasional, dan telah mendirikan cabang atau kantor di lebih dari 30 kota di seluruh negeri. Lebih dari separuh produknya dijual ke Eropa dan Amerika Serikat termasuk Asia, Indonesia, Vietnam, Malaysia, Singapura, dll. Semua produk dan layanan dirancang, diproduksi, dan diservis sesuai dengan standar internasional Uni Eropa dan negara-negara Amerika Utara dengan persyaratan kualitas yang lebih tinggi. Produk-produk tersebut digunakan secara luas di lebih dari 300 industri termasuk optoelektronik, tenaga termal, tenaga nuklir, polisilikon, perminyakan, industri kimia, semikonduktor, pelapisan listrik, makanan, dan lain-lain.
      </p>
      <img alt="Kantor Hongsen Environment" class="img-center my-4" src="img/L4.jpg"/>
@@ -237,8 +484,8 @@
      </div>
     </div>
    </section>
-   <div class="mt-10 bg-gray-50" id="produk-beranda">
-    <h3 class="text-xl font-semibold text-blue-600 mb-4">
+   <div class="mt-10 bg-gray-900/40 glass rounded-xl p-6" id="produk-beranda">
+    <h3 class="text-xl font-semibold neon-title mb-4">
      Produk Unggulan
     </h3>
     <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
@@ -498,10 +745,10 @@
      </div>
     </section>
     <section class="bg-blue-900 card rounded-xl mb-8 p-8 bg-white text-white shadow-sm" id="klien">
-     <h2 class="text-2xl font-semibold text-white-600 mb-6">
+     <h2 class="text-2xl font-semibold text-White-600 mb-6">
       Klien Bersama
      </h2>
-     <p class="white mb-6">
+     <p class="text-white-600 mb-6">
       Kami telah bekerja sama dengan berbagai perusahaan ternama di sektor industri, energi, dan teknologi tinggi. Klien kami meliputi perusahaan nasional dan multinasional yang mempercayakan solusi pengolahan lingkungan kepada Hongsen.
      </p>
      <!-- Swiper -->
@@ -636,31 +883,31 @@
       </div>
      </section>
      <section class="card rounded-xl p-8 bg-white bg-green-100 shadow-sm" id="layanan-pelanggan">
-      <h2 class="text-2xl font-semibold text-blue-600 mb-4">
+      <h2 id="layananPelangganTitle" class="text-2xl font-semibold text-blue-600 mb-4">
        Layanan Pelanggan
       </h2>
       <div class="space-y-4">
        <div class="bg-blue-50 p-4 rounded-lg">
-        <h3 class="font-medium text-blue-700">
+        <h3 id="layanan1Title" class="font-medium text-blue-700">
          Investasi Dan Konstruksi
         </h3>
-        <p class="text-gray-600 text-sm mt-1">
+        <p id="layanan1Desc" class="text-gray-600 text-sm mt-1">
          Melayani objek seperti kawasan industri besar, pabrik, perusahaan, serta fasilitas pendukung kehidupan pemerintah kota, dengan membangun sistem dan fasilitas pengolahan air limbah industri, gas buang, air limbah domestik yang komprehensif. Bentuk layanan utama mencakup: Produk - Instalasi - Operasional - Serah Terima - Pemeliharaan purna jual.
         </p>
        </div>
        <div class="bg-blue-50 p-4 rounded-lg">
-        <h3 class="font-medium text-blue-700">
+        <h3 id="layanan2Title" class="font-medium text-blue-700">
          Desain Teknis
         </h3>
-        <p class="text-gray-600 text-sm mt-1">
+        <p id="layanan2Desc" class="text-gray-600 text-sm mt-1">
          Memberikan solusi desain teroptimalisasi dengan mempertimbangkan karakteristik proyek klien dari berbagai industri, proses produksi, standar emisi limbah cair/gas, anggaran investasi.
         </p>
        </div>
        <div class="bg-blue-50 p-4 rounded-lg">
-        <h3 class="font-medium text-blue-700">
+        <h3 id="layanan3Title" class="font-medium text-blue-700">
          Penyediaan Peralatan
         </h3>
-        <p class="text-gray-600 text-sm mt-1">
+        <p id="layanan3Desc" class="text-gray-600 text-sm mt-1">
          Menyediakan peralatan profesional dan sistem pendukung untuk pengolahan air limbah industri/domestik, sistem air murni industri, pengendalian gas buang, layanan tambahan meliputi instalasi, pengujian, dan layanan purna jual peralatan.
         </p>
        </div>
@@ -668,11 +915,11 @@
      </section>
     </div>
    </div>
-   <footer class="bg-gray-800 text-gray-300 py-12">
+   <footer class="bg-gradient-to-r from-blue-900 via-indigo-900 to-cyan-900 text-gray-300 py-12 glass mt-12">
     <div class="max-w-6xl mx-auto px-4">
      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
       <div>
-       <h3 class="text-lg font-semibold text-white mb-4">
+       <h3 class="text-lg font-semibold neon-title mb-4">
         PT. HONGSEN ENVIRONMENTAL TECHNOLOGY
        </h3>
        <p class="mb-2">
@@ -741,7 +988,7 @@
      </div>
     </div>
    </footer>
-   <a class="fixed bottom-5 right-5 whatsapp-button" href="https://wa.me/6282118393335">
+   <a class="fixed bottom-5 right-5 whatsapp-button ripple" href="https://wa.me/6282118393335">
     <img alt="Chat WhatsApp" class="w-14 h-14" src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"/>
    </a>
    <!-- Swiper JS -->
@@ -813,25 +1060,232 @@
    </script>
   </div>
   <script>
-   window.addEventListener('scroll', function () {
-    const header = document.getElementById('mainHeader');
-    const links = document.querySelectorAll('.nav-link');
-    if (window.scrollY > 50) {
-      header.classList.remove('bg-transparent', 'text-white');
-      header.classList.add('bg-white', 'text-gray-900', 'shadow');
-      links.forEach(link => {
-        link.classList.remove('text-white');
-        link.classList.add('text-gray-800');
+    // Fade-in animation on scroll
+    document.addEventListener("DOMContentLoaded", function() {
+      const fadeEls = document.querySelectorAll('.fade-in');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.animationDelay = (Math.random() * 0.5) + "s";
+            entry.target.classList.add('animate__animated', 'animate__fadeInUp');
+            entry.target.style.opacity = 1;
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+      fadeEls.forEach(el => {
+        observer.observe(el);
       });
-    } else {
-      header.classList.remove('bg-white', 'text-gray-900', 'shadow');
-      header.classList.add('bg-transparent', 'text-white');
-      links.forEach(link => {
-        link.classList.remove('text-gray-800');
-        link.classList.add('text-white');
+    });
+
+    // Ripple effect for .ripple elements
+    document.querySelectorAll('.ripple').forEach(el => {
+      el.addEventListener('click', function(e) {
+        let ripple = document.createElement('span');
+        ripple.className = 'ripple';
+        this.appendChild(ripple);
+        setTimeout(() => ripple.remove(), 600);
       });
+    });
+
+    // ...existing code for Swiper, Modal Video, Header scroll...
+    window.addEventListener('scroll', function () {
+      const header = document.getElementById('mainHeader');
+      const links = document.querySelectorAll('.nav-link');
+      if (window.scrollY > 50) {
+        header.classList.remove('bg-transparent', 'text-white');
+        header.classList.add('glass', 'bg-white/30', 'text-gray-900', 'shadow-xl');
+        links.forEach(link => {
+          link.classList.remove('text-white');
+          link.classList.add('text-cyan-400');
+        });
+      } else {
+        header.classList.remove('bg-white/30', 'text-gray-900', 'shadow-xl');
+        header.classList.add('glass', 'bg-transparent', 'text-white');
+        links.forEach(link => {
+          link.classList.remove('text-cyan-400');
+          link.classList.add('text-white');
+        });
+      }
+    });
+   </script>
+   <script>
+  // Translation dictionary
+  const translations = {
+    id: {
+      navVisi: "Visi",
+      navNilai: "Nilai",
+      navProfil: "Profil",
+      navStruktur: "Struktur",
+      navKontak: "Kontrak",
+      heroTitle: "PT.Hongsen Environment Protection Technology Ltd.",
+      heroSubtitle: "~ YOUR WATER SOLUTION ~",
+      visiMisi: "Visi & Misi",
+      visi: "Visi:",
+      visiDesc: "Menjadi perusahaan energi nasional kelas dunia.",
+      misi: "Misi:",
+      misiDesc: "Menyediakan energi berkelanjutan yang ramah lingkungan untuk masa depan.",
+      nilaiPerusahaan: "Nilai Perusahaan",
+      nilai1Title: "Integritas",
+      nilai1Desc: "Bertindak jujur dan konsisten dalam semua aspek bisnis",
+      nilai2Title: "Profesionalisme",
+      nilai2Desc: "Standar tinggi dalam pelayanan dan operasional",
+      nilai3Title: "Inovasi",
+      nilai3Desc: "Terus mengembangkan solusi terdepan",
+      nilai4Title: "Keamanan",
+      nilai4Desc: "Prioritaskan keselamatan dalam setiap aspek",
+      nilai5Title: "Keunggulan",
+      nilai5Desc: "Berusaha untuk yang terbaik dalam segala hal",
+      profilPerusahaan: "Profil Perusahaan",
+      profil1: "Shenzhen Hongsen Environmental Protection Technology Co., Ltd. secara resmi memasuki industri perlindungan lingkungan pada tahun 2015 dengan modal terdaftar disetor sebesar 41 juta. Ini adalah perusahaan perlindungan lingkungan komprehensif yang mengintegrasikan peralatan pengolahan limbah, peralatan pengolahan gas limbah, peralatan air murni industri, dll. Ini adalah perusahaan teknologi tinggi nasional dan perusahaan perangkat lunak ganda dengan banyak paten teknis dan hak cipta perangkat lunak. Ini adalah unit anggota Asosiasi Perlindungan Lingkungan Shenzhen dan salah satu produsen peralatan perlindungan lingkungan pertama yang memiliki reputasi kesehatan tingkat A di Provinsi Guangdong.",
+      profil2: "Setelah bertahun-tahun berkembang, perusahaan ini berakar di China, melayani Asia, dan menghadapi dunia. Perusahaan ini memiliki banyak teknologi pengolahan air domestik dan internasional, dan telah mendirikan cabang atau kantor di lebih dari 30 kota di seluruh negeri. Lebih dari separuh produknya dijual ke Eropa dan Amerika Serikat termasuk Asia, Indonesia, Vietnam, Malaysia, Singapura, dll. Semua produk dan layanan dirancang, diproduksi, dan diservis sesuai dengan standar internasional Uni Eropa dan negara-negara Amerika Utara dengan persyaratan kualitas yang lebih tinggi. Produk-produk tersebut digunakan secara luas di lebih dari 300 industri termasuk optoelektronik, tenaga termal, tenaga nuklir, polisilikon, perminyakan, industri kimia, semikonduktor, pelapisan listrik, makanan, dan lain-lain.",
+      profil3: "Saat ini, perusahaan memiliki lebih dari 300 karyawan, dengan 90% berpendidikan sarjana, termasuk 8 doktor, 25 magister, 5 insinyur senior, dan 56 staf penelitian profesional. Nilai output tahunan melebihi 500 juta RMB. Produknya digunakan di lebih dari 300 industri, termasuk optoelektronik, pembangkit listrik termal/nuklir, polisilikon, minyak & gas, semikonduktor, pelapisan logam, dan makanan.",
+      profil4: "Kami senantiasa berpegang pada filosofi perusahaan \"Teknologi Menciptakan Kualitas Tinggi\" dengan prinsip operasional \"Inovasi Teknologi, Inovasi Produk, dan Inovasi Layanan\". Dengan dedikasi jangka panjang dalam pengembangan, penelitian, dan produksi peralatan pengolahan air, kami telah mengumpulkan pengalaman manufaktur yang kaya di bidang teknologi pengolahan air. Perusahaan kami dilengkapi dengan peralatan produksi canggih, metode inspeksi yang komprehensif, sistem jaminan kualitas terintegrasi, layanan purna jual yang efisien dan berkualitas tinggi.",
+      profil5: "Selama bertahun-tahun, fokus utama kami meliputi manufaktur peralatan pengolahan air seperti peralatan air murni, peralatan pengolahan air limbah, evaporator MVR, sistem daur ulang air bekas, serta pengolahan air limbah berkadar garam tinggi. Kami juga telah membangun kemitraan jangka panjang yang stabil dengan berbagai institut penelitian dan departemen desain teknik terkemuka.",
+      layananPelangganTitle: "Layanan Pelanggan",
+      layanan1Title: "Investasi Dan Konstruksi",
+      layanan1Desc: "Melayani objek seperti kawasan industri besar, pabrik, perusahaan, serta fasilitas pendukung kehidupan pemerintah kota, dengan membangun sistem dan fasilitas pengolahan air limbah industri, gas buang, air limbah domestik yang komprehensif. Bentuk layanan utama mencakup: Produk - Instalasi - Operasional - Serah Terima - Pemeliharaan purna jual.",
+      layanan2Title: "Desain Teknis",
+      layanan2Desc: "Memberikan solusi desain teroptimalisasi dengan mempertimbangkan karakteristik proyek klien dari berbagai industri, proses produksi, standar emisi limbah cair/gas, anggaran investasi.",
+      layanan3Title: "Penyediaan Peralatan",
+      layanan3Desc: "Menyediakan peralatan profesional dan sistem pendukung untuk pengolahan air limbah industri/domestik, sistem air murni industri, pengendalian gas buang, layanan tambahan meliputi instalasi, pengujian, dan layanan purna jual peralatan.",
+      // ...existing code...
+    },
+    en: {
+      navVisi: "Vision",
+      navNilai: "Values",
+      navProfil: "Profile",
+      navStruktur: "Structure",
+      navKontak: "Contact",
+      heroTitle: "PT.Hongsen Environment Protection Technology Ltd.",
+      heroSubtitle: "~ YOUR WATER SOLUTION ~",
+      visiMisi: "Vision & Mission",
+      visi: "Vision:",
+      visiDesc: "To become a world-class national energy company.",
+      misi: "Mission:",
+      misiDesc: "Providing sustainable and environmentally friendly energy for the future.",
+      nilaiPerusahaan: "Company Values",
+      nilai1Title: "Integrity",
+      nilai1Desc: "Acting honestly and consistently in all business aspects",
+      nilai2Title: "Professionalism",
+      nilai2Desc: "High standards in service and operations",
+      nilai3Title: "Innovation",
+      nilai3Desc: "Continuously developing leading solutions",
+      nilai4Title: "Safety",
+      nilai4Desc: "Prioritizing safety in every aspect",
+      nilai5Title: "Excellence",
+      nilai5Desc: "Striving for the best in everything",
+      profilPerusahaan: "Company Profile",
+      profil1: "Shenzhen Hongsen Environmental Protection Technology Co., Ltd. officially entered the environmental protection industry in 2015 with a registered capital of 41 million. It is a comprehensive environmental protection company integrating waste treatment equipment, waste gas treatment equipment, industrial pure water equipment, etc. It is a national high-tech enterprise and dual software enterprise with many technical patents and software copyrights. It is a member unit of the Shenzhen Environmental Protection Association and one of the first environmental protection equipment manufacturers with an A-level health reputation in Guangdong Province.",
+      profil2: "After years of development, the company is rooted in China, serves Asia, and faces the world. The company has many domestic and international water treatment technologies and has established branches or offices in more than 30 cities across the country. More than half of its products are sold to Europe and the United States, including Asia, Indonesia, Vietnam, Malaysia, Singapore, etc. All products and services are designed, manufactured, and serviced in accordance with the international standards of the European Union and North American countries with higher quality requirements. The products are widely used in more than 300 industries including optoelectronics, thermal power, nuclear power, polysilicon, petroleum, chemical industry, semiconductors, electroplating, food, and others.",
+      profil3: "Currently, the company has more than 300 employees, 90% of whom have a bachelor's degree, including 8 doctors, 25 masters, 5 senior engineers, and  56 professional research staff. The annual output value exceeds 500 million RMB. Its products are used in more than 300 industries, including optoelectronics, thermal/nuclear power plants, polysilicon, oil & gas, semiconductors, metal plating, and food.",
+      profil4: "We always adhere to the company philosophy of \"Technology Creates High Quality\" with the operational principle of \"Technological Innovation, Product Innovation, and Service Innovation\". With long-term dedication to the development, research, and production of water treatment equipment, we have accumulated rich manufacturing experience in the field of water treatment technology. Our company is equipped with advanced production equipment, comprehensive inspection methods, an integrated quality assurance system, and efficient and high-quality after-sales service.",
+      profil5: "Over the years, our main focus has included the manufacture of water treatment equipment such as pure water equipment, wastewater treatment equipment, MVR evaporators, reclaimed water recycling systems, and high-salinity wastewater treatment. We have also established stable long-term partnerships with various research institutes and leading engineering design departments.",
+      layananPelangganTitle: "Customer Service",
+      layanan1Title: "Investment and Construction",
+      layanan1Desc: "Serving objects such as large industrial estates, factories, companies, as well as supporting facilities for municipal government life, by building comprehensive industrial wastewater, exhaust gas, and domestic wastewater treatment systems and facilities. Main service forms include: Product - Installation - Operation - Handover - After-sales maintenance.",
+      layanan2Title: "Technical Design",
+      layanan2Desc: "Providing optimized design solutions by considering the characteristics of client projects from various industries, production processes, liquid/gas waste emission standards, and investment budgets.",
+      layanan3Title: "Equipment Supply",
+      layanan3Desc: "Providing professional equipment and support systems for industrial/domestic wastewater treatment, industrial pure water systems, exhaust gas control, with additional services including installation, testing, and after-sales service.",
+      // ...existing code...
+    },
+    "zh-CN": {
+      navVisi: "愿景",
+      navNilai: "价值观",
+      navProfil: "简介",
+      navStruktur: "结构",
+      navKontak: "联系",
+      heroTitle: "鸿森环境保护科技有限公司",
+      heroSubtitle: "~ 您的水处理解决方案 ~",
+      visiMisi: "愿景与使命",
+      visi: "愿景：",
+      visiDesc: "成为世界一流的国家能源公司。",
+      misi: "使命：",
+      misiDesc: "为未来提供可持续和环保的能源。",
+      nilaiPerusahaan: "公司价值观",
+      nilai1Title: "诚信",
+      nilai1Desc: "在所有业务方面诚实守信，始终如一",
+      nilai2Title: "专业",
+      nilai2Desc: "服务和运营的高标准",
+      nilai3Title: "创新",
+      nilai3Desc: "不断开发领先的解决方案",
+      nilai4Title: "安全",
+      nilai4Desc: "在每个环节优先考虑安全",
+      nilai5Title: "卓越",
+      nilai5Desc: "力求做到最好",
+      profilPerusahaan: "公司简介",
+      profil1: "深圳鸿森环境保护科技有限公司于2015年正式进入环保行业，注册资本4100万元，是一家集废水处理设备、废气处理设备、工业纯水设备等为一体的综合性环保企业。是国家高新技术企业和双软企业，拥有多项技术专利和软件著作权。是深圳市环境保护协会会员单位，也是广东省首批具有A级健康信誉的环保设备制造商之一。",
+      profil2: "经过多年的发展，公司立足中国，服务亚洲，面向世界。公司拥有多项国内外水处理技术，并在全国30多个城市设有分公司或办事处。超过一半的产品销往欧美及亚洲、印度尼西亚、越南、马来西亚、新加坡等地。所有产品和服务均按照欧盟和北美国家的国际标准设计、制造和服务，质量要求更高。产品广泛应用于300多个行业，包括光电子、火电、核电、多晶硅、石油、化工、半导体、电镀、食品等。",
+      profil3: "目前，公司拥有300多名员工，其中90%具有本科学历，包括8名博士、25名硕士、5名高级工程师和56名专业研究人员。年产值超过5亿元人民币。产品应用于300多个行业，包括光电子、火/核电厂、多晶硅、油气、半导体、金属电镀和食品等。",
+      profil4: "我们始终坚持“科技创造高品质”的企业理念，以“技术创新、产品创新、服务创新”为经营原则。长期致力于水处理设备的开发、研究和生产，在水处理技术领域积累了丰富的制造经验。公司配备先进的生产设备、完善的检测手段、集成的质量保证体系和高效优质的售后服务。",
+      profil5: "多年来，我们的主要业务包括纯水设备、废水处理设备、MVR蒸发器、中水回用系统及高盐废水处理等水处理设备的制造，并与多家科研院所和知名工程设计部门建立了长期稳定的合作关系。",
+      layananPelangganTitle: "客户服务",
+      layanan1Title: "投资与建设",
+      layanan1Desc: "服务对象包括大型工业园区、工厂、企业以及市政配套生活设施，建设工业废水、废气、生活污水等综合处理系统和设施。主要服务形式包括：产品-安装-运营-交付-售后维护。",
+      layanan2Title: "技术设计",
+      layanan2Desc: "根据不同行业客户项目特点、生产工艺、废水/废气排放标准、投资预算，提供优化设计解决方案。",
+      layanan3Title: "设备供应",
+      layanan3Desc: "为工业/生活污水处理、工业纯水系统、废气治理等提供专业设备及配套系统，附加服务包括设备安装、调试及售后服务。",
+      // ...existing code...
     }
-  });
+  };
+
+  function changeLanguage(lang) {
+    const t = translations[lang] || translations['id'];
+    // Navbar
+    setText('navVisi', t.navVisi);
+    setText('navNilai', t.navNilai);
+    setText('navProfil', t.navProfil);
+    setText('navStruktur', t.navStruktur);
+    setText('navKontak', t.navKontak);
+    // Hero
+    setText('heroTitle', t.heroTitle);
+    setText('heroSubtitle', t.heroSubtitle);
+    // Visi Misi
+    setText('visiMisi', t.visiMisi);
+    setText('visiTitle', t.visi);
+    setText('visiDesc', t.visiDesc);
+    setText('misiTitle', t.misi);
+    setText('misiDesc', t.misiDesc);
+    // Nilai Perusahaan
+    setText('nilai1Title', t.nilai1Title);
+    setText('nilai1Desc', t.nilai1Desc);
+    setText('nilai2Title', t.nilai2Title);
+    setText('nilai2Desc', t.nilai2Desc);
+    setText('nilai3Title', t.nilai3Title);
+    setText('nilai3Desc', t.nilai3Desc);
+    setText('nilai4Title', t.nilai4Title);
+    setText('nilai4Desc', t.nilai4Desc);
+    setText('nilai5Title', t.nilai5Title);
+    setText('nilai5Desc', t.nilai5Desc);
+    // Profil Perusahaan (multi-paragraph)
+    setText('profilPerusahaan', t.profilPerusahaan);
+    setText('profil1', t.profil1);
+    setText('profil2', t.profil2);
+    setText('profil3', t.profil3 || '');
+    setText('profil4', t.profil4 || '');
+    setText('profil5', t.profil5 || '');
+    // Layanan Pelanggan
+    setText('layananPelangganTitle', t.layananPelangganTitle);
+    setText('layanan1Title', t.layanan1Title);
+    setText('layanan1Desc', t.layanan1Desc);
+    setText('layanan2Title', t.layanan2Title);
+    setText('layanan2Desc', t.layanan2Desc);
+    setText('layanan3Title', t.layanan3Title);
+    setText('layanan3Desc', t.layanan3Desc);
+
+    // Struktur Organisasi, Bidang Bisnis, Kontak, Footer, dll (tambahkan id pada elemen jika ingin diterjemahkan)
+    setText('strukturTitle', t.strukturTitle || "Struktur Organisasi");
+    setText('strukturDesc', t.strukturDesc || "Struktur organisasi terdiri dari direksi, komisaris, dan divisi strategis.");
+    setText('bisnisTitle', t.bisnisTitle || "Bidang Bisnis");
+    // ...tambahkan setText/setHTML untuk elemen lain yang ingin diterjemahkan...
+
+    // Contoh: jika ingin menerjemahkan footer, tambahkan id pada elemen footer lalu gunakan setText/setHTML di sini.
+    }
+
+    // Jalankan default bahasa saat halaman dimuat
+    document.addEventListener('DOMContentLoaded', function() {
+      changeLanguage('id');
+    });
   </script>
- </body>
-</html>
