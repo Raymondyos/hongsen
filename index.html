@@ -9,10 +9,10 @@
   <script src="https://cdn.tailwindcss.com">
   </script>
   <!-- Tambahkan font modern dan profesional -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Outfit:wght@400;600;700&amp;family=Plus+Jakarta+Sans:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
   <style>
-    body {
+   body {
       /* Gunakan font modern dan profesional */
       font-family: 'Plus Jakarta Sans', 'Outfit', 'Poppins', 'Inter', sans-serif;
       background: linear-gradient(135deg, #f8fafc 0%, #e0e7ef 100%);
@@ -297,57 +297,76 @@
  </head>
  <body class="text-gray-200 bg-transparent font-sans leading-relaxed">
   <!-- Tambahkan Tailwind CDN jika belum ada -->
-<script src="https://cdn.tailwindcss.com"></script>
-
-<!-- NAVBAR RESPONSIF SAJA (tanpa ubah data) -->
-<header class="fixed top-0 left-0 w-full z-50 bg-white/70 backdrop-blur-md shadow-md" id="mainHeader">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <!-- NAVBAR RESPONSIF SAJA (tanpa ubah data) -->
+  <header class="fixed top-0 left-0 w-full z-50 bg-white/70 backdrop-blur-md shadow-md" id="mainHeader">
+   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex justify-between items-center h-16">
-      <!-- Logo -->
-      <a href="#" class="ripple">
-        <img src="img/logo-hongsen.png" class="h-10" alt="Logo" />
+     <!-- Logo -->
+     <a class="ripple" href="#">
+      <img alt="Logo" class="h-10" src="img/logo-hongsen.png"/>
+     </a>
+     <!-- Hamburger (mobile) -->
+     <div class="text-center text-xs sm:text-sm md:text-base font-semibold text-cyan-700 flex-1 mx-2 truncate">
+      Hongsen Environment Protection Technology Ltd.
+     </div>
+     <div class="md:hidden">
+      <button class="text-cyan-600 focus:outline-none" id="menu-toggle">
+       <svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M4 6h16M4 12h16M4 18h16" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+        </path>
+       </svg>
+      </button>
+     </div>
+     <!-- Desktop Nav -->
+     <nav class="hidden md:flex space-x-6 text-sm font-semibold uppercase">
+      <a class="nav-link" href="#visi">
+       Visi
       </a>
-
-      <!-- Hamburger (mobile) -->
-      <div class="md:hidden">
-        <button id="menu-toggle" class="text-cyan-600 focus:outline-none">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-          </svg>
-        </button>
-      </div>
-
-      <!-- Desktop Nav -->
-      <nav class="hidden md:flex space-x-6 text-sm font-semibold uppercase">
-        <a href="#visi" class="nav-link">Visi</a>
-        <a href="#nilai" class="nav-link">Nilai</a>
-        <a href="#profil" class="nav-link">Profil</a>
-        <a href="#struktur" class="nav-link">Struktur</a>
-        <a href="#kontak" class="nav-link">Kontak</a>
-      </nav>
+      <a class="nav-link" href="#nilai">
+       Nilai
+      </a>
+      <a class="nav-link" href="#profil">
+       Profil
+      </a>
+      <a class="nav-link" href="#struktur">
+       Struktur
+      </a>
+      <a class="nav-link" href="#kontak">
+       Kontak
+      </a>
+     </nav>
     </div>
-  </div>
-
-  <!-- Mobile Nav -->
-  <div id="mobile-menu" class="hidden md:hidden bg-white/90 px-6 pb-4">
-    <a href="#visi" class="block py-2 nav-link">Visi</a>
-    <a href="#nilai" class="block py-2 nav-link">Nilai</a>
-    <a href="#profil" class="block py-2 nav-link">Profil</a>
-    <a href="#struktur" class="block py-2 nav-link">Struktur</a>
-    <a href="#kontak" class="block py-2 nav-link">Kontak</a>
-  </div>
-</header>
-
-<script>
-  const toggleBtn = document.getElementById('menu-toggle');
+   </div>
+   <!-- Mobile Nav -->
+   <div class="hidden md:hidden bg-white/90 px-6 pb-4" id="mobile-menu">
+    <a class="block py-2 nav-link" href="#visi">
+     Visi
+    </a>
+    <a class="block py-2 nav-link" href="#nilai">
+     Nilai
+    </a>
+    <a class="block py-2 nav-link" href="#profil">
+     Profil
+    </a>
+    <a class="block py-2 nav-link" href="#struktur">
+     Struktur
+    </a>
+    <a class="block py-2 nav-link" href="#kontak">
+     Kontak
+    </a>
+   </div>
+  </header>
+  <script>
+   const toggleBtn = document.getElementById('menu-toggle');
   const mobileMenu = document.getElementById('mobile-menu');
   toggleBtn.addEventListener('click', () => {
     mobileMenu.classList.toggle('hidden');
   });
-</script>
-
-<style>
-  .nav-link {
+  </script>
+  <style>
+   .nav-link {
     color: #22223b !important;
     font-weight: 600;
     padding: 0.25rem 0.75rem;
@@ -356,49 +375,50 @@
   .nav-link:hover {
     color: #38bdf8 !important;
   }
-</style>
-  <section class="hero-section flex items-center justify-center h-[70vh] text-center relative bg-center mt-16 fade-in">
-   <div class="absolute inset-0 bg-[url('img/background.png')] bg-cover bg-center brightness-50 rounded-b-3xl"></div>
+  </style>
+  <section class="hero-section flex items-center justify-center h-[70vh] text-center relative bg-center fade-in mt-24">
+   <div class="absolute inset-0 bg-[url('img/background.png')] bg-cover bg-center brightness-50 rounded-b-3xl">
+   </div>
    <div class="relative z-10 px-4 max-w-6xl text-white">
     <div class="flex items-center gap-4 whitespace-nowrap flex-nowrap justify-center">
      <img alt="Logo Hongsen" class="h-10 md:h-14 flex-shrink-0 drop-shadow-lg" src="img/logo-hongsen.png"/>
      <span class="text-2xl md:text-4xl font-bold leading-tight neon-title">
       <span class="text-4xl md:text-6xl" id="heroTitle">
-      PT.Hongsen Environment Protection Technology Ltd.
+       PT.Hongsen Environment Protection Technology Ltd.
       </span>
      </span>
     </div>
-    <p id="heroSubtitle" class="text-lg md:text-xl mt-4 neon-title">
+    <p class="text-lg md:text-xl mt-4 neon-title" id="heroSubtitle">
      ~ YOUR WATER SOLUTION ~
     </p>
    </div>
   </section>
   <div class="max-w-6xl mx-auto px-4 py-12">
    <section class="glass card rounded-xl mb-8 p-8 shadow-sm fade-in" id="visi">
-    <h2 id="visiMisi" class="text-2xl font-semibold neon-title mb-4">
+    <h2 class="text-2xl font-semibold neon-title mb-4" id="visiMisi">
      Visi &amp; Misi
     </h2>
     <div class="space-y-4">
      <div>
-      <h3 id="visiTitle" class="font-medium text-lg text-gray-800">
+      <h3 class="font-medium text-lg text-gray-800" id="visiTitle">
        Visi:
       </h3>
-      <p id="visiDesc" class="text-gray-600">
+      <p class="text-gray-600" id="visiDesc">
        Menjadi perusahaan energi nasional kelas dunia.
       </p>
      </div>
      <div>
-      <h3 id="misiTitle" class="font-medium text-lg text-gray-800">
+      <h3 class="font-medium text-lg text-gray-800" id="misiTitle">
        Misi:
       </h3>
-      <p id="misiDesc" class="text-gray-600">
+      <p class="text-gray-600" id="misiDesc">
        Menyediakan energi berkelanjutan yang ramah lingkungan untuk masa depan.
       </p>
      </div>
     </div>
    </section>
    <section class="glass card rounded-xl mb-8 p-8 shadow-sm fade-in" id="nilai">
-    <h2 id="nilaiPerusahaan" class="text-2xl font-semibold neon-title mb-6">
+    <h2 class="text-2xl font-semibold neon-title mb-6" id="nilaiPerusahaan">
      Nilai Perusahaan
     </h2>
     <ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -410,10 +430,10 @@
        </svg>
       </div>
       <div>
-       <h3 id="nilai1Title" class="font-medium text-gray-800">
+       <h3 class="font-medium text-gray-800" id="nilai1Title">
         Integritas
        </h3>
-       <p id="nilai1Desc" class="text-gray-600 text-sm">
+       <p class="text-gray-600 text-sm" id="nilai1Desc">
         Bertindak jujur dan konsisten dalam semua aspek bisnis
        </p>
       </div>
@@ -426,10 +446,10 @@
        </svg>
       </div>
       <div>
-       <h3 id="nilai2Title" class="font-medium text-gray-800">
+       <h3 class="font-medium text-gray-800" id="nilai2Title">
         Profesionalisme
        </h3>
-       <p id="nilai2Desc" class="text-gray-600 text-sm">
+       <p class="text-gray-600 text-sm" id="nilai2Desc">
         Standar tinggi dalam pelayanan dan operasional
        </p>
       </div>
@@ -442,10 +462,10 @@
        </svg>
       </div>
       <div>
-       <h3 id="nilai3Title" class="font-medium text-gray-800">
+       <h3 class="font-medium text-gray-800" id="nilai3Title">
         Inovasi
        </h3>
-       <p id="nilai3Desc" class="text-gray-600 text-sm">
+       <p class="text-gray-600 text-sm" id="nilai3Desc">
         Terus mengembangkan solusi terdepan
        </p>
       </div>
@@ -458,10 +478,10 @@
        </svg>
       </div>
       <div>
-       <h3 id="nilai4Title" class="font-medium text-gray-800">
+       <h3 class="font-medium text-gray-800" id="nilai4Title">
         Keamanan
        </h3>
-       <p id="nilai4Desc" class="text-gray-600 text-sm">
+       <p class="text-gray-600 text-sm" id="nilai4Desc">
         Prioritaskan keselamatan dalam setiap aspek
        </p>
       </div>
@@ -474,7 +494,7 @@
        </svg>
       </div>
       <div>
-       <h3 id="nilai5Title" class="font-medium text-gray-800">
+       <h3 class="font-medium text-gray-800" id="nilai5Title">
         Keunggulan
        </h3>
        <p class="text-gray-600 text-sm">
@@ -485,14 +505,14 @@
     </ul>
    </section>
    <section class="glass card rounded-xl mb-8 p-8 shadow-sm fade-in" id="sejarah">
-    <h2 id="profilPerusahaan" class="text-2xl font-semibold neon-title mb-6">
+    <h2 class="text-2xl font-semibold neon-title mb-6" id="profilPerusahaan">
      Profil Perusahaan
     </h2>
     <div class="space-y-6">
-     <p id="profil1" class="text-gray-600">
+     <p class="text-gray-600" id="profil1">
       Shenzhen Hongsen Environmental Protection Technology Co., Ltd. secara resmi memasuki industri perlindungan lingkungan pada tahun 2015 dengan modal terdaftar disetor sebesar 41 juta. Ini adalah perusahaan perlindungan lingkungan komprehensif yang mengintegrasikan peralatan pengolahan limbah, peralatan pengolahan gas limbah, peralatan air murni industri, dll. Ini adalah perusahaan teknologi tinggi nasional dan perusahaan perangkat lunak ganda dengan banyak paten teknis dan hak cipta perangkat lunak. Ini adalah unit anggota Asosiasi Perlindungan Lingkungan Shenzhen dan salah satu produsen peralatan perlindungan lingkungan pertama yang memiliki reputasi kesehatan tingkat A di Provinsi Guangdong.
      </p>
-     <p id="profil2" class="text-gray-600">
+     <p class="text-gray-600" id="profil2">
       Setelah bertahun-tahun berkembang, perusahaan ini berakar di China, melayani Asia, dan menghadapi dunia. Perusahaan ini memiliki banyak teknologi pengolahan air domestik dan internasional, dan telah mendirikan cabang atau kantor di lebih dari 30 kota di seluruh negeri. Lebih dari separuh produknya dijual ke Eropa dan Amerika Serikat termasuk Asia, Indonesia, Vietnam, Malaysia, Singapura, dll. Semua produk dan layanan dirancang, diproduksi, dan diservis sesuai dengan standar internasional Uni Eropa dan negara-negara Amerika Utara dengan persyaratan kualitas yang lebih tinggi. Produk-produk tersebut digunakan secara luas di lebih dari 300 industri termasuk optoelektronik, tenaga termal, tenaga nuklir, polisilikon, perminyakan, industri kimia, semikonduktor, pelapisan listrik, makanan, dan lain-lain.
      </p>
      <img alt="Kantor Hongsen Environment" class="img-center my-4" src="img/L4.jpg"/>
@@ -910,31 +930,31 @@
       </div>
      </section>
      <section class="card rounded-xl p-8 bg-white bg-green-100 shadow-sm" id="layanan-pelanggan">
-      <h2 id="layananPelangganTitle" class="text-2xl font-semibold text-blue-600 mb-4">
+      <h2 class="text-2xl font-semibold text-blue-600 mb-4" id="layananPelangganTitle">
        Layanan Pelanggan
       </h2>
       <div class="space-y-4">
        <div class="bg-blue-50 p-4 rounded-lg">
-        <h3 id="layanan1Title" class="font-medium text-blue-700">
+        <h3 class="font-medium text-blue-700" id="layanan1Title">
          Investasi Dan Konstruksi
         </h3>
-        <p id="layanan1Desc" class="text-gray-600 text-sm mt-1">
+        <p class="text-gray-600 text-sm mt-1" id="layanan1Desc">
          Melayani objek seperti kawasan industri besar, pabrik, perusahaan, serta fasilitas pendukung kehidupan pemerintah kota, dengan membangun sistem dan fasilitas pengolahan air limbah industri, gas buang, air limbah domestik yang komprehensif. Bentuk layanan utama mencakup: Produk - Instalasi - Operasional - Serah Terima - Pemeliharaan purna jual.
         </p>
        </div>
        <div class="bg-blue-50 p-4 rounded-lg">
-        <h3 id="layanan2Title" class="font-medium text-blue-700">
+        <h3 class="font-medium text-blue-700" id="layanan2Title">
          Desain Teknis
         </h3>
-        <p id="layanan2Desc" class="text-gray-600 text-sm mt-1">
+        <p class="text-gray-600 text-sm mt-1" id="layanan2Desc">
          Memberikan solusi desain teroptimalisasi dengan mempertimbangkan karakteristik proyek klien dari berbagai industri, proses produksi, standar emisi limbah cair/gas, anggaran investasi.
         </p>
        </div>
        <div class="bg-blue-50 p-4 rounded-lg">
-        <h3 id="layanan3Title" class="font-medium text-blue-700">
+        <h3 class="font-medium text-blue-700" id="layanan3Title">
          Penyediaan Peralatan
         </h3>
-        <p id="layanan3Desc" class="text-gray-600 text-sm mt-1">
+        <p class="text-gray-600 text-sm mt-1" id="layanan3Desc">
          Menyediakan peralatan profesional dan sistem pendukung untuk pengolahan air limbah industri/domestik, sistem air murni industri, pengendalian gas buang, layanan tambahan meliputi instalasi, pengujian, dan layanan purna jual peralatan.
         </p>
        </div>
@@ -1010,7 +1030,7 @@
      </div>
      <div class="border-t border-gray-700 mt-8 pt-8 text-center">
       <p>
-       &copy; 2025 Hongsen Environmental Technology. All rights reserved.
+       © 2025 Hongsen Environmental Technology. All rights reserved.
       </p>
      </div>
     </div>
@@ -1087,7 +1107,7 @@
    </script>
   </div>
   <script>
-    // Fade-in animation on scroll
+   // Fade-in animation on scroll
     document.addEventListener("DOMContentLoaded", function() {
       const fadeEls = document.querySelectorAll('.fade-in');
       const observer = new IntersectionObserver((entries) => {
@@ -1135,9 +1155,9 @@
         });
       }
     });
-   </script>
-   <script>
-  // Translation dictionary
+  </script>
+  <script>
+   // Translation dictionary
   const translations = {
     id: {
       navVisi: "Visi",
@@ -1316,3 +1336,5 @@
       changeLanguage('id');
     });
   </script>
+ </body>
+</html>
