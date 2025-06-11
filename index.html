@@ -1,15 +1,26 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
+  <link rel="icon" href="img/favicon.png" />
+
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>HONGSEN ENVIRONMENTAL TECHNOLOGY</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet"/>
-  <link href="https://unpkg.com/swiper/swiper-bundle.min.css" rel="stylesheet"/>
+  <script src="https://cdn.tailwindcss.com">
+  document.querySelectorAll("#mobile-menu a").forEach(link => {
+    link.addEventListener("click", () => {
+      document.getElementById("mobile-menu").classList.add("hidden");
+    });
+  });
+
+</script>
+  <li>
   <link href="https://cdn.jsdelivr.net/npm/lightbox2@2.11.4/dist/css/lightbox.min.css" rel="stylesheet"/>
   <style>
-    body {
+    html, html, body {
+  margin: 0;
+  padding: 0;
+      
       font-family: 'Plus Jakarta Sans', 'Outfit', 'Poppins', 'Inter', sans-serif;
       background: linear-gradient(135deg, #f8fafc 0%, #e0e7ef 100%);
       min-height: 100vh;
@@ -24,14 +35,15 @@
       padding-right: 1.5rem;
     }
     .hero-section {
+  position: relative;
   aspect-ratio: 16/9;
   min-height: auto;
-      background:'img/background.jpg';
+      background-image: url('img/background.png');
       background-blend-mode: lighten;
       background-size: cover;
       background-position: center;
       box-shadow: 0 8px 32px 0 rgba(56,189,248,0.07), 0 1.5px 0 #38bdf8 inset;
-      border-radius: 0 0 2rem 2rem;
+      border-radius: 0;
       position: relative;
       overflow: hidden;
       min-height: 70vh;
@@ -47,12 +59,14 @@
     @media (max-width: 1024px) {
       .container-custom { max-width: 98vw; padding-left: 0.7rem; padding-right: 0.7rem; }
       .hero-section {
+  position: relative;
   aspect-ratio: 16/9;
   min-height: auto; background-attachment: scroll; min-height: 50vh; padding-top: 3rem; padding-bottom: 3rem; }
     }
     @media (max-width: 640px) {
       .container-custom { max-width: 100vw; padding-left: 0.3rem; padding-right: 0.3rem; }
       .hero-section {
+  position: relative;
   aspect-ratio: 16/9;
   min-height: auto; min-height: 32vh; padding-top: 1.5rem; padding-bottom: 1.5rem; }
     }
@@ -204,6 +218,7 @@
     }
     @media (max-width: 1024px) {
       .hero-section {
+  position: relative;
   aspect-ratio: 16/9;
   min-height: auto; min-height: 50vh; padding-top: 2.5rem; padding-bottom: 2.5rem; }
       .neon-title { font-size: 1.4rem; }
@@ -212,6 +227,7 @@
     @media (max-width: 768px) {
       .container-custom { max-width: 98vw; padding-left: 0.7rem; padding-right: 0.7rem; }
       .hero-section {
+  position: relative;
   aspect-ratio: 16/9;
   min-height: auto; min-height: 36vh; padding-top: 1.5rem; padding-bottom: 1.5rem; }
       .neon-title { font-size: 1.1rem; }
@@ -234,6 +250,7 @@
     @media (max-width: 640px) {
       .container-custom { max-width: 100vw; padding-left: 0.3rem; padding-right: 0.3rem; }
       .hero-section {
+  position: relative;
   aspect-ratio: 16/9;
   min-height: auto; min-height: 22vh; padding-top: 0.5rem; padding-bottom: 0.5rem; }
       .neon-title { font-size: 0.95rem; }
@@ -260,14 +277,26 @@
       .swiper-slide img, .swiper-slide video { height: 3rem; }
     }
     .swiper-button-next, .swiper-button-prev { z-index: 10 !important; }
-  </style>
+  
+.hero-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+}
+.hero-section > * {
+  position: relative;
+  z-index: 2;
+}
+</style>
 </head>
 <body class="text-gray-800 bg-white font-sans leading-relaxed">
     <!-- Header/Navbar -->
     <header id="mainHeader" class="fixed top-0 left-0 w-full z-50 bg-white/90 backdrop-blur-md shadow-md">
       <div class="container-custom flex justify-between items-center h-14 px-2 sm:px-4">
         <a class="ripple flex items-center gap-2" href="#">
-          <img src="IMG/logo-hongsen.png" alt="Logo" class="h-8 w-8"/>
+          <img loading="lazy" src="IMG/logo-hongsen.png" alt="Logo" class="h-8 w-8"/>
           <span class="text-sm font-semibold text-cyan-700 truncate">
             Hongsen Environment Protection Ltd.
           </span>
@@ -297,18 +326,21 @@
       });
     </script>
     <!-- Hero Section -->
-    <section class="hero-section pt-20 pb-4 px-2 flex flex-col items-center justify-center bg-cover bg-center text-center w-full min-h-[40vh]">
-      <img src="img/logo-hongsen.png" alt="Logo Hongsen" class="h-16 w-16 mx-auto mb-2 drop-shadow-lg"/>
-      <h1 class="text-xl font-bold neon-title mb-1">PT.Hongsen Environment Protection Ltd.</h1>
-      <p class="text-xs text-cyan-700 font-semibold mb-2">~ YOUR WATER SOLUTION ~</p>
-    </section>
+    
+<section class="hero-section relative min-h-[60vh] flex items-center justify-center text-center bg-cover bg-center" style="background-image: url('img/background.png');">
+  <div class="absolute inset-0 bg-black/40 z-10"></div>
+  <div class="relative z-20 text-white">
+    <h1 class="text-3xl sm:text-5xl font-bold text-white drop-shadow-lg">PT. Hongsen Environment Protection Ltd.</h1>
+    <p class="text-base sm:text-xl text-cyan-200 font-semibold drop-shadow">~ YOUR WATER SOLUTION ~</p>
+  </div>
+</section>
     <!-- Main Content -->
     <main class="container-custom px-2 py-4">
       <!-- Visi -->
       <!-- VISI -->
 <section id="visi" class="bg-white rounded-xl shadow p-4 mb-4 border border-gray-200">
   <h2 class="text-lg font-bold text-blue-600 mb-2">Visi</h2>
-  <p class="text-gray-700 text-sm leading-relaxed">
+  <p class="text-gray-700 text-base sm:text-lg leading-relaxed">
     Menjadi perusahaan energi nasional kelas dunia.
   </p>
 </section>
@@ -316,7 +348,7 @@
 <!-- MISI -->
 <section id="misi" class="bg-white rounded-xl shadow p-4 mb-4 border border-gray-200">
   <h2 class="text-lg font-bold text-blue-600 mb-2">Misi</h2>
-  <p class="text-gray-700 text-sm leading-relaxed">
+  <p class="text-gray-700 text-base sm:text-lg leading-relaxed">
     Menyediakan energi berkelanjutan yang ramah lingkungan untuk masa depan.
   </p>
 </section>
@@ -326,35 +358,35 @@
   <h2 class="text-lg font-bold text-blue-600 mb-3">Nilai Perusahaan</h2>
   <ul class="list-disc list-inside space-y-1 text-sm text-gray-700">
     <li><strong>Integritas:</strong> Bertindak jujur dan konsisten.</li>
-    <li><strong>Profesionalisme:</strong> Standar tinggi dalam pelayanan.</li>
-    <li><strong>Inovasi:</strong> Terus kembangkan solusi.</li>
-    <li><strong>Keamanan:</strong> Utamakan keselamatan.</li>
-    <li><strong>Keunggulan:</strong> Komitmen pada yang terbaik.</li>
+<li><strong>Profesionalisme:</strong> Standar tinggi dalam pelayanan.</li>
+<li><strong>Inovasi:</strong> Terus kembangkan solusi.</li>
+<li><strong>Keamanan:</strong> Utamakan keselamatan.</li>
+<li><strong>Keunggulan:</strong> Komitmen pada yang terbaik.</li>
   </ul>
 </section>
 
 <!-- PROFIL PERUSAHAAN -->
 <section id="profil" class="bg-white rounded-xl shadow p-4 mb-4 border border-gray-200">
   <h2 class="text-lg font-bold text-blue-600 mb-2">Profil Perusahaan</h2>
-  <p class="text-gray-700 text-sm leading-relaxed">
+  <p class="text-gray-700 text-base sm:text-lg leading-relaxed">
     Shenzhen Hongsen Environmental Protection Technology Co., Ltd. secara resmi memasuki industri perlindungan lingkungan pada tahun 2015 dengan modal disetor sebesar 41 juta RMB. Perusahaan ini menyediakan berbagai solusi peralatan seperti pengolahan limbah cair, gas buang, dan sistem air murni industri.
   </p>
-          <p class="text-gray-600 text-base" id="profil2">
+          <p class="text-gray-700 text-base sm:text-lg leading-relaxed">
             Setelah bertahun-tahun berkembang, perusahaan ini berakar di China, melayani Asia, dan menghadapi dunia. Perusahaan ini memiliki banyak teknologi pengolahan water domestik dan internasional, dan telah mendirikan cabang atau kantor di lebih dari 30 kota di seluruh negeri. Lebih dari separuh produknya dijual ke Eropa dan Amerika Serikat termasuk Asia, Indonesia, Vietnam, Malaysia, Singapura, dll. Semua produk dan layanan dirancang, diproduksi, dan diservis sesuai dengan standar internasional Uni Eropa dan negara-negara Amerika Utara dengan persyaratan kualitas yang lebih tinggi. Produk-produk tersebut digunakan secara luas di lebih dari 300 industri termasuk optoelektronik, tenaga termal, tenaga nuklir, polisilikon, perminyakan, industri kimia, semikonduktor, pelapisan listrik, makanan, dan lain-lain.
           </p>
-          <img alt="Kantor Hongsen Environment" class="img-center my-4 rounded-lg shadow-sm w-full max-w-xl mx-auto object-cover" src="img/L4.jpg"/>
-          <p class="text-gray-600 text-base">
+          <img loading="lazy" alt="Kantor Hongsen Environment" class="img-center my-4 rounded-lg shadow-sm w-full max-w-xl mx-auto object-cover" src="img/L4.jpg"/>
+          <p class="text-gray-700 text-base sm:text-lg leading-relaxed">
             Saat ini, perusahaan memiliki lebih dari 300 karyawan, dengan 90% berpendidikan sarjana, termasuk 8 doktor, 25 magister, 5 insinyur senior, dan 56 staf penelitian profesional. Nilai output tahunan melebihi 500 juta RMB. Produknya digunakan di lebih dari 300 industri, termasuk optoelektronik, pembangkit listrik termal/nuklir, polisilikon, minyak &amp; gas, semikonduktor, pelapisan logam, dan makanan.
           </p>
-          <p class="text-gray-600 text-base">
+          <p class="text-gray-700 text-base sm:text-lg leading-relaxed">
             Kami senantiasa berpegang pada filosofi perusahaan "Teknologi Menciptakan Kualitas Tinggi" dengan prinsip operasional "Inovasi Teknologi, Inovasi Produk, dan Inovasi Layanan". Dengan dedikasi jangka panjang dalam pengembangan, penelitian, dan produksi peralatan pengolahan air, kami telah mengumpulkan pengalaman manufaktur yang kaya di bidang teknologi pengolahan air. Perusahaan kami dilengkapi dengan peralatan produksi canggih, metode inspeksi yang komprehensif, sistem jaminan kualitas terintegrasi, layanan purna jual yang efisien dan berkualitas tinggi.
           </p>
-          <p class="text-gray-600 text-base">
+          <p class="text-gray-700 text-base sm:text-lg leading-relaxed">
             Selama bertahun-tahun, fokus utama kami meliputi manufaktur peralatan pengolahan air seperti peralatan air murni, peralatan pengolahan air limbah, evaporator MVR, sistem daur ulang air bekas, serta pengolahan air limbah berkadar garam tinggi. Kami juga telah membangun kemitraan jangka panjang yang stabil dengan berbagai institut penelitian dan departemen desain teknik terkemuka.
           </p>
           <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <img alt="Kantor Hongsen Environment" class="rounded-lg shadow-sm w-full h-64 object-cover" src="img/L1.jpg"/>
-            <img alt="Kantor Hongsen Environment" class="rounded-lg shadow-sm w-full h-64 object-cover" src="img/L2.jpg"/>
+            <img loading="lazy" alt="Kantor Hongsen Environment" class="rounded-lg shadow-sm w-full h-64 object-cover" src="img/L1.jpg"/>
+            <img loading="lazy" alt="Kantor Hongsen Environment" class="rounded-lg shadow-sm w-full h-64 object-cover" src="img/L2.jpg"/>
           </div>
         </div>
       </section>
@@ -363,40 +395,40 @@
         <h3 class="text-base font-semibold neon-title mb-2">Produk Unggulan</h3>
         <div class="flex gap-2 overflow-x-auto pb-2">
           <a data-lightbox="produk" href="img/DP1.jpg" class="flex-shrink-0 w-32">
-            <img alt="Produk 1" class="w-full h-20 object-cover rounded shadow-sm produk-animate" src="img/DP1.jpg"/>
+            <img loading="lazy" alt="Produk 1" class="w-full h-20 object-cover rounded shadow-sm produk-animate" src="img/DP1.jpg"/>
           </a>
           <a data-lightbox="produk" href="img/DP2.jpg" class="flex-shrink-0 w-32">
-            <img alt="Produk 2" class="w-full h-20 object-cover rounded shadow-sm produk-animate" src="img/DP2.jpg"/>
+            <img loading="lazy" alt="Produk 2" class="w-full h-20 object-cover rounded shadow-sm produk-animate" src="img/DP2.jpg"/>
           </a>
           <a data-lightbox="produk" href="img/DP3.jpg" class="flex-shrink-0 w-32">
-            <img alt="Produk 3" class="w-full h-20 object-cover rounded shadow-sm produk-animate" src="img/DP3.jpg"/>
+            <img loading="lazy" alt="Produk 3" class="w-full h-20 object-cover rounded shadow-sm produk-animate" src="img/DP3.jpg"/>
           </a>
           <a data-lightbox="produk" href="img/DP4.jpg" class="flex-shrink-0 w-32">
-            <img alt="Produk 4" class="w-full h-20 object-cover rounded shadow-sm produk-animate" src="img/DP4.jpg"/>
+            <img loading="lazy" alt="Produk 4" class="w-full h-20 object-cover rounded shadow-sm produk-animate" src="img/DP4.jpg"/>
           </a>
           <a data-lightbox="produk" href="img/DP5.jpg" class="flex-shrink-0 w-32">
-            <img alt="Produk 5" class="w-full h-20 object-cover rounded shadow-sm produk-animate" src="img/DP5.jpg"/>
+            <img loading="lazy" alt="Produk 5" class="w-full h-20 object-cover rounded shadow-sm produk-animate" src="img/DP5.jpg"/>
           </a>
           <a data-lightbox="produk" href="img/DP6.jpg" class="flex-shrink-0 w-32">
-            <img alt="Produk 6" class="w-full h-20 object-cover rounded shadow-sm produk-animate" src="img/DP6.jpg"/>
+            <img loading="lazy" alt="Produk 6" class="w-full h-20 object-cover rounded shadow-sm produk-animate" src="img/DP6.jpg"/>
           </a>
           <a data-lightbox="produk" href="img/DP7.jpg" class="flex-shrink-0 w-32">
-            <img alt="Produk 7" class="w-full h-20 object-cover rounded shadow-sm produk-animate" src="img/DP7.jpg"/>
+            <img loading="lazy" alt="Produk 7" class="w-full h-20 object-cover rounded shadow-sm produk-animate" src="img/DP7.jpg"/>
           </a>
           <a data-lightbox="produk" href="img/DP8.jpg" class="flex-shrink-0 w-32">
-            <img alt="Produk 8" class="w-full h-20 object-cover rounded shadow-sm produk-animate" src="img/DP8.jpg"/>
+            <img loading="lazy" alt="Produk 8" class="w-full h-20 object-cover rounded shadow-sm produk-animate" src="img/DP8.jpg"/>
           </a>
           <a data-lightbox="produk" href="img/DP9.jpg" class="flex-shrink-0 w-32">
-            <img alt="Produk 9" class="w-full h-20 object-cover rounded shadow-sm produk-animate" src="img/DP9.jpg"/>
+            <img loading="lazy" alt="Produk 9" class="w-full h-20 object-cover rounded shadow-sm produk-animate" src="img/DP9.jpg"/>
           </a>
           <a data-lightbox="produk" href="img/DP10.jpg" class="flex-shrink-0 w-32">
-            <img alt="Produk 10" class="w-full h-20 object-cover rounded shadow-sm produk-animate" src="img/DP10.jpg"/>
+            <img loading="lazy" alt="Produk 10" class="w-full h-20 object-cover rounded shadow-sm produk-animate" src="img/DP10.jpg"/>
           </a>
           <a data-lightbox="produk" href="img/DP11.jpg" class="flex-shrink-0 w-32">
-            <img alt="Produk 11" class="w-full h-20 object-cover rounded shadow-sm produk-animate" src="img/DP11.jpg"/>
+            <img loading="lazy" alt="Produk 11" class="w-full h-20 object-cover rounded shadow-sm produk-animate" src="img/DP11.jpg"/>
           </a>
           <a data-lightbox="produk" href="img/DP12.jpg" class="flex-shrink-0 w-32">
-            <img alt="Produk 12" class="w-full h-20 object-cover rounded shadow-sm produk-animate" src="img/DP12.jpg"/>
+            <img loading="lazy" alt="Produk 12" class="w-full h-20 object-cover rounded shadow-sm produk-animate" src="img/DP12.jpg"/>
           </a>
           <!-- Video Produk Unggulan -->
           <video class="cursor-pointer w-full h-20 rounded produk-animate object-cover" controls onclick="openModal('video/Video4.mp4')">
@@ -419,144 +451,75 @@
       <p class="text-gray-600">Struktur organisasi terdiri dari direksi, komisaris, dan divisi strategis.</p>
     </section>
     <!-- Bidang Bisnis -->
-    <section id="bisnis" class="bg-slate-100 rounded-xl p-3 bg-white mb-4">
-      <h2 class="text-lg font-semibold text-blue-600 mb-3">Bidang Bisnis</h2>
-      <ul class="flex flex-wrap text-gray-600 gap-x-4 gap-y-2">
-        <li class="flex items-center w-full sm:w-1/2 mb-2">
-          <svg class="h-5 w-5 text-blue-500 mr-2" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-            <path clip-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" fill-rule="evenodd">
-            </path>
-          </svg>
-          Kimia
-        </li>
-        <li class="flex items-center w-full sm:w-1/2 mb-2">
-          <svg class="h-5 w-5 text-blue-500 mr-2" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-            <path clip-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" fill-rule="evenodd">
-            </path>
-          </svg>
-          Minyak
-        </li>
-        <li class="flex items-center w-full sm:w-1/2 mb-2">
-          <svg class="h-5 w-5 text-blue-500 mr-2" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-            <path clip-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" fill-rule="evenodd">
-            </path>
-          </svg>
-          Peleburan
-        </li>
-        <li class="flex items-center w-full sm:w-1/2 mb-2">
-          <svg class="h-5 w-5 text-blue-500 mr-2" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-            <path clip-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" fill-rule="evenodd">
-            </path>
-          </svg>
-          MIneral
-        </li>
-        <li class="flex items-center w-full sm:w-1/2 mb-2">
-          <svg class="h-5 w-5 text-blue-500 mr-2" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-            <path clip-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" fill-rule="evenodd">
-            </path>
-          </svg>
-          Silikon
-        </li>
-        <li class="flex items-center w-full sm:w-1/2 mb-2">
-          <svg class="h-5 w-5 text-blue-500 mr-2" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-            <path clip-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" fill-rule="evenodd">
-            </path>
-          </svg>
-          Karet
-        </li>
-        <li class="flex items-center w-full sm:w-1/2 mb-2">
-          <svg class="h-5 w-5 text-blue-500 mr-2" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-            <path clip-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" fill-rule="evenodd">
-            </path>
-          </svg>
-          Makanan
-        </li>
-        <li class="flex items-center w-full sm:w-1/2 mb-2">
-          <svg class="h-5 w-5 text-blue-500 mr-2" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-            <path clip-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" fill-rule="evenodd">
-            </path>
-          </svg>
-          Obat-obatan
-        </li>
-        <li class="flex items-center w-full sm:w-1/2 mb-2">
-          <svg class="h-5 w-5 text-blue-500 mr-2" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-            <path clip-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" fill-rule="evenodd">
-            </path>
-          </svg>
-          pencetakan dan pencelupan
-          <li class="flex items-center w-full sm:w-1/2 mb-2">
-           <svg class="h-5 w-5 text-blue-500 mr-2" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-            <path clip-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" fill-rule="evenodd">
-            </path>
-           </svg>
-           Tekstil
-           <li class="flex items-center w-full sm:w-1/2 mb-2">
-            <svg class="h-5 w-5 text-blue-500 mr-2" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-             <path clip-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" fill-rule="evenodd">
-             </path>
-            </svg>
-            Energi baru
-            <li class="flex items-center w-full sm:w-1/2 mb-2">
-             <svg class="h-5 w-5 text-blue-500 mr-2" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-              <path clip-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" fill-rule="evenodd">
-              </path>
-             </svg>
-             Bahan baru
-             <li class="flex items-center w-full sm:w-1/2 mb-2">
-              <svg class="h-5 w-5 text-blue-500 mr-2" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-               <path clip-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" fill-rule="evenodd">
-               </path>
-              </svg>
-              Suku Cadang Mobil
-              <li class="flex items-center w-full sm:w-1/2 mb-2">
-               <svg class="h-5 w-5 text-blue-500 mr-2" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                <path clip-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" fill-rule="evenodd">
-                </path>
-               </svg>
-               Chip Semikonduktor
-               <li class="flex items-center w-full sm:w-1/2 mb-2">
-                <svg class="h-5 w-5 text-blue-500 mr-2" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                 <path clip-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" fill-rule="evenodd">
-                 </path>
-                </svg>
-                Manufaktur Kelas Atas
-                <li class="flex items-center w-full sm:w-1/2 mb-2">
-                 <svg class="h-5 w-5 text-blue-500 mr-2" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                  <path clip-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" fill-rule="evenodd">
-                  </path>
-                 </svg>
-                 Limbah Kota dan lebih dari 300 industri lainnya.
-                </li>
-                <li>
-                </li>
-               </li>
-               <li>
-               </li>
-              </li>
-              <li>
-              </li>
-             </li>
-             <li>
-             </li>
-            </li>
-            <li>
-            </li>
-           </li>
-           <li>
-           </li>
-          </li>
-          <li>
-          </li>
-         </li>
-         <li>
-         </li>
-        </li>
-        <li>
-        </li>
-       </li>
-       <li>
-       </li>
-      </ul>
+    <section id="bisnis" class="bg-white rounded-xl p-6 shadow-md mb-8">
+  <h2 class="text-xl font-bold text-blue-700 mb-4 text-center">Bidang Bisnis</h2>
+  <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 text-gray-700 text-sm">
+
+    <div class="flex items-center gap-2 p-2 bg-blue-50 rounded shadow hover:shadow-md transition">
+      <svg class="w-5 h-5 text-blue-600" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16z"/></svg>
+      Kimia
+    </div>
+    <div class="flex items-center gap-2 p-2 bg-blue-50 rounded shadow hover:shadow-md transition">
+      <svg class="w-5 h-5 text-blue-600" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16z"/></svg>
+      Minyak
+    </div>
+    <div class="flex items-center gap-2 p-2 bg-blue-50 rounded shadow hover:shadow-md transition">
+      <svg class="w-5 h-5 text-blue-600" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16z"/></svg>
+      Peleburan
+    </div>
+    <div class="flex items-center gap-2 p-2 bg-blue-50 rounded shadow hover:shadow-md transition">
+      <svg class="w-5 h-5 text-blue-600" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16z"/></svg>
+      Mineral
+    </div>
+    <div class="flex items-center gap-2 p-2 bg-blue-50 rounded shadow hover:shadow-md transition">
+      <svg class="w-5 h-5 text-blue-600" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16z"/></svg>
+      Silikon
+    </div>
+    <div class="flex items-center gap-2 p-2 bg-blue-50 rounded shadow hover:shadow-md transition">
+      <svg class="w-5 h-5 text-blue-600" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16z"/></svg>
+      Karet
+    </div>
+    <div class="flex items-center gap-2 p-2 bg-blue-50 rounded shadow hover:shadow-md transition">
+      <svg class="w-5 h-5 text-blue-600" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16z"/></svg>
+      Makanan
+    </div>
+    <div class="flex items-center gap-2 p-2 bg-blue-50 rounded shadow hover:shadow-md transition">
+      <svg class="w-5 h-5 text-blue-600" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16z"/></svg>
+      Obat-obatan
+    </div>
+    <div class="flex items-center gap-2 p-2 bg-blue-50 rounded shadow hover:shadow-md transition">
+      <svg class="w-5 h-5 text-blue-600" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16z"/></svg>
+      Pencetakan & Pencelupan
+    </div>
+    <div class="flex items-center gap-2 p-2 bg-blue-50 rounded shadow hover:shadow-md transition">
+      <svg class="w-5 h-5 text-blue-600" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16z"/></svg>
+      Tekstil
+    </div>
+    <div class="flex items-center gap-2 p-2 bg-blue-50 rounded shadow hover:shadow-md transition">
+      <svg class="w-5 h-5 text-blue-600" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16z"/></svg>
+      Energi Baru
+    </div>
+    <div class="flex items-center gap-2 p-2 bg-blue-50 rounded shadow hover:shadow-md transition">
+      <svg class="w-5 h-5 text-blue-600" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16z"/></svg>
+      Bahan Baru
+    </div>
+    <div class="flex items-center gap-2 p-2 bg-blue-50 rounded shadow hover:shadow-md transition">
+      <svg class="w-5 h-5 text-blue-600" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16z"/></svg>
+      Suku Cadang Mobil
+    </div>
+    <div class="flex items-center gap-2 p-2 bg-blue-50 rounded shadow hover:shadow-md transition">
+      <svg class="w-5 h-5 text-blue-600" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16z"/></svg>
+      Chip Semikonduktor
+    </div>
+    <div class="flex items-center gap-2 p-2 bg-blue-50 rounded shadow hover:shadow-md transition">
+      <svg class="w-5 h-5 text-blue-600" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16z"/></svg>
+      Manufaktur Kelas Atas
+    </div>
+    <div class="flex items-center gap-2 p-2 bg-blue-50 rounded shadow hover:shadow-md transition">
+      <svg class="w-5 h-5 text-blue-600" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16z"/></svg>
+      Limbah Kota
+    </div>
+  </div>
      </section>
      <!-- Kualifikasi Perusahaan -->
      <section id="kualifikasi" class="bg-indigo-50 rounded-xl mb-4 p-3 bg-white">
@@ -565,21 +528,21 @@
       </h2>
       <!-- Grid horizontal scroll seperti produk unggulan -->
       <div class="flex gap-2 overflow-x-auto pb-2">
-        <img alt="Sertifikat 1" class="w-40 h-32 object-contain rounded shadow-sm" src="img/S1.jpg"/>
-        <img alt="Sertifikat 2" class="w-40 h-32 object-contain rounded shadow-sm" src="img/S2.jpg"/>
-        <img alt="Sertifikat 3" class="w-40 h-32 object-contain rounded shadow-sm" src="img/S3.jpg"/>
-        <img alt="Sertifikat 4" class="w-40 h-32 object-contain rounded shadow-sm" src="img/S4.jpg"/>
-        <img alt="Sertifikat 5" class="w-40 h-32 object-contain rounded shadow-sm" src="img/S5.jpg"/>
-        <img alt="Sertifikat 6" class="w-40 h-32 object-contain rounded shadow-sm" src="img/S6.jpg"/>
-        <img alt="Sertifikat 7" class="w-40 h-32 object-contain rounded shadow-sm" src="img/S7.jpg"/>
-        <img alt="Sertifikat 8" class="w-40 h-32 object-contain rounded shadow-sm" src="img/S8.jpg"/>
-        <img alt="Sertifikat 9" class="w-40 h-32 object-contain rounded shadow-sm" src="img/S9.jpg"/>
-        <img alt="Sertifikat 10" class="w-40 h-32 object-contain rounded shadow-sm" src="img/S10.jpg"/>
-        <img alt="Sertifikat 11" class="w-40 h-32 object-contain rounded shadow-sm" src="img/S11.jpg"/>
-        <img alt="Sertifikat 12" class="w-40 h-32 object-contain rounded shadow-sm" src="img/S12.jpg"/>
-        <img alt="Sertifikat 13" class="w-40 h-32 object-contain rounded shadow-sm" src="img/S13.jpg"/>
-        <img alt="Sertifikat 14" class="w-40 h-32 object-contain rounded shadow-sm" src="img/S14.jpg"/>
-        <img alt="Sertifikat 15" class="w-40 h-32 object-contain rounded shadow-sm" src="img/S15.jpg"/>
+        <img loading="lazy" alt="Sertifikat 1" class="w-40 h-32 object-contain rounded shadow-sm" src="img/S1.jpg"/>
+        <img loading="lazy" alt="Sertifikat 2" class="w-40 h-32 object-contain rounded shadow-sm" src="img/S2.jpg"/>
+        <img loading="lazy" alt="Sertifikat 3" class="w-40 h-32 object-contain rounded shadow-sm" src="img/S3.jpg"/>
+        <img loading="lazy" alt="Sertifikat 4" class="w-40 h-32 object-contain rounded shadow-sm" src="img/S4.jpg"/>
+        <img loading="lazy" alt="Sertifikat 5" class="w-40 h-32 object-contain rounded shadow-sm" src="img/S5.jpg"/>
+        <img loading="lazy" alt="Sertifikat 6" class="w-40 h-32 object-contain rounded shadow-sm" src="img/S6.jpg"/>
+        <img loading="lazy" alt="Sertifikat 7" class="w-40 h-32 object-contain rounded shadow-sm" src="img/S7.jpg"/>
+        <img loading="lazy" alt="Sertifikat 8" class="w-40 h-32 object-contain rounded shadow-sm" src="img/S8.jpg"/>
+        <img loading="lazy" alt="Sertifikat 9" class="w-40 h-32 object-contain rounded shadow-sm" src="img/S9.jpg"/>
+        <img loading="lazy" alt="Sertifikat 10" class="w-40 h-32 object-contain rounded shadow-sm" src="img/S10.jpg"/>
+        <img loading="lazy" alt="Sertifikat 11" class="w-40 h-32 object-contain rounded shadow-sm" src="img/S11.jpg"/>
+        <img loading="lazy" alt="Sertifikat 12" class="w-40 h-32 object-contain rounded shadow-sm" src="img/S12.jpg"/>
+        <img loading="lazy" alt="Sertifikat 13" class="w-40 h-32 object-contain rounded shadow-sm" src="img/S13.jpg"/>
+        <img loading="lazy" alt="Sertifikat 14" class="w-40 h-32 object-contain rounded shadow-sm" src="img/S14.jpg"/>
+        <img loading="lazy" alt="Sertifikat 15" class="w-40 h-32 object-contain rounded shadow-sm" src="img/S15.jpg"/>
       </div>
      </section>
      <!-- Klien Bersama -->
@@ -592,30 +555,30 @@
       </p>
       <!-- Grid horizontal scroll seperti produk unggulan -->
       <div class="flex gap-2 overflow-x-auto pb-2">
-        <img alt="Klien 1" class="w-32 h-20 object-contain rounded shadow-sm bg-gray-50" src="img/OC1.jpg"/>
-        <img alt="Klien 2" class="w-32 h-20 object-contain rounded shadow-sm bg-gray-50" src="img/OC2.jpg"/>
-        <img alt="Klien 3" class="w-32 h-20 object-contain rounded shadow-sm bg-gray-50" src="img/OC3.jpg"/>
-        <img alt="Klien 4" class="w-32 h-20 object-contain rounded shadow-sm bg-gray-50" src="img/OC4.jpg"/>
-        <img alt="Klien 5" class="w-32 h-20 object-contain rounded shadow-sm bg-gray-50" src="img/OC5.jpg"/>
-        <img alt="Klien 6" class="w-32 h-20 object-contain rounded shadow-sm bg-gray-50" src="img/OC6.jpg"/>
-        <img alt="Klien 7" class="w-32 h-20 object-contain rounded shadow-sm bg-gray-50" src="img/OC7.jpg"/>
-        <img alt="Klien 8" class="w-32 h-20 object-contain rounded shadow-sm bg-gray-50" src="img/OC8.jpg"/>
-        <img alt="Klien 9" class="w-32 h-20 object-contain rounded shadow-sm bg-gray-50" src="img/OC9.jpg"/>
-        <img alt="Klien 10" class="w-32 h-20 object-contain rounded shadow-sm bg-gray-50" src="img/OC10.jpg"/>
-        <img alt="Klien 11" class="w-32 h-20 object-contain rounded shadow-sm bg-gray-50" src="img/OC11.jpg"/>
-        <img alt="Klien 12" class="w-32 h-20 object-contain rounded shadow-sm bg-gray-50" src="img/OC12.jpg"/>
-        <img alt="Klien 13" class="w-32 h-20 object-contain rounded shadow-sm bg-gray-50" src="img/OC13.jpg"/>
-        <img alt="Klien 14" class="w-32 h-20 object-contain rounded shadow-sm bg-gray-50" src="img/OC14.jpg"/>
-        <img alt="Klien 15" class="w-32 h-20 object-contain rounded shadow-sm bg-gray-50" src="img/OC15.jpg"/>
-        <img alt="Klien 16" class="w-32 h-20 object-contain rounded shadow-sm bg-gray-50" src="img/OC16.jpg"/>
+        <img loading="lazy" alt="Klien 1" class="w-32 h-20 object-contain rounded shadow-sm bg-gray-50" src="img/OC1.jpg"/>
+        <img loading="lazy" alt="Klien 2" class="w-32 h-20 object-contain rounded shadow-sm bg-gray-50" src="img/OC2.jpg"/>
+        <img loading="lazy" alt="Klien 3" class="w-32 h-20 object-contain rounded shadow-sm bg-gray-50" src="img/OC3.jpg"/>
+        <img loading="lazy" alt="Klien 4" class="w-32 h-20 object-contain rounded shadow-sm bg-gray-50" src="img/OC4.jpg"/>
+        <img loading="lazy" alt="Klien 5" class="w-32 h-20 object-contain rounded shadow-sm bg-gray-50" src="img/OC5.jpg"/>
+        <img loading="lazy" alt="Klien 6" class="w-32 h-20 object-contain rounded shadow-sm bg-gray-50" src="img/OC6.jpg"/>
+        <img loading="lazy" alt="Klien 7" class="w-32 h-20 object-contain rounded shadow-sm bg-gray-50" src="img/OC7.jpg"/>
+        <img loading="lazy" alt="Klien 8" class="w-32 h-20 object-contain rounded shadow-sm bg-gray-50" src="img/OC8.jpg"/>
+        <img loading="lazy" alt="Klien 9" class="w-32 h-20 object-contain rounded shadow-sm bg-gray-50" src="img/OC9.jpg"/>
+        <img loading="lazy" alt="Klien 10" class="w-32 h-20 object-contain rounded shadow-sm bg-gray-50" src="img/OC10.jpg"/>
+        <img loading="lazy" alt="Klien 11" class="w-32 h-20 object-contain rounded shadow-sm bg-gray-50" src="img/OC11.jpg"/>
+        <img loading="lazy" alt="Klien 12" class="w-32 h-20 object-contain rounded shadow-sm bg-gray-50" src="img/OC12.jpg"/>
+        <img loading="lazy" alt="Klien 13" class="w-32 h-20 object-contain rounded shadow-sm bg-gray-50" src="img/OC13.jpg"/>
+        <img loading="lazy" alt="Klien 14" class="w-32 h-20 object-contain rounded shadow-sm bg-gray-50" src="img/OC14.jpg"/>
+        <img loading="lazy" alt="Klien 15" class="w-32 h-20 object-contain rounded shadow-sm bg-gray-50" src="img/OC15.jpg"/>
+        <img loading="lazy" alt="Klien 16" class="w-32 h-20 object-contain rounded shadow-sm bg-gray-50" src="img/OC16.jpg"/>
       </div>
     </section>
     <!-- Hubungi Kami -->
     <section id="Hubungi kami" class="bg-blue-900 rounded-xl mb-4 p-3 text-white">
-      <h2 class="text-lg font-semibold text-white-600 mb-3">
+      <h2 class="text-lg font-semibold text-white mb-3">
         Hubungi Kami
       </h2>
-      <div class="space-y-4 text-white-600">
+      <div class="space-y-4 text-white">
         <div class="flex items-start">
           <svg class="h-6 w-6 text-blue-500 mr-3 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
            <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
@@ -679,7 +642,7 @@
             Website
            </h3>
            <p>
-            <a class="text-white-600 hover:underline" href="https://www.hongszg.com">
+            <a class="text-white hover:underline" href="https://www.hongszg.com">
              www.hongszg.com
             </a>
            </p>
@@ -721,42 +684,44 @@
      </section>
     </div>
    </div>
-   <footer class="bg-blue-900 text-gray-300 py-4 mt-8">
-    <div class="max-w-md md:max-w-4xl mx-auto px-2">
-      <div class="flex flex-col md:grid md:grid-cols-2 gap-4 text-xs">
-        <div>
-          <h3 class="text-base font-semibold neon-title mb-2">PT. HONGSEN ENVIRONMENTAL PROTECTION</h3>
-          <p>Jln. Pluit Selatan Raya No.01, Jakarta Utara</p>
-          <p>Email: hongsen.environmental@gmail.com</p>
-          <p>Telp: +62 82118393335</p>
-          <div class="mt-4">
-            <h3 class="text-base font-semibold text-white mb-2">Tautan Cepat</h3>
-            <ul>
-              <li><a class="hover:text-white transition-colors" href="#visi">Visi &amp; Misi</a></li>
-              <li><a class="hover:text-white transition-colors" href="#nilai">Nilai Perusahaan</a></li>
-              <li><a class="hover:text-white transition-colors" href="#sejarah">Profil Perusahaan</a></li>
-              <li><a class="hover:text-white transition-colors" href="produk.html">Produk Kami</a></li>
-            </ul>
-          </div>
-        </div>
-        <!-- Form Hubungi Kami di Footer (sebelah kanan di desktop) -->
-        <div class="bg-blue-900 rounded-xl mb-4 p-3 text-white">
-          <h3 class="text-base font-semibold text-white mb-2">Hubungi Kami</h3>
-          <!-- Ganti form agar terhubung ke Formspree -->
-          <form id="footerContactForm"
-            action="https://formspree.io/f/xdoqzqzq" 
-            method="POST" 
-            class="flex flex-col gap-2 text-xs"
-            target="_blank"
-          >
-            <input type="text" name="nama" placeholder="Nama" required class="rounded px-2 py-1 text-gray-900"/>
-            <input type="email" name="email" placeholder="Email" required class="rounded px-2 py-1 text-gray-900"/>
-            <input type="tel" name="telepon" placeholder="Telepon" required class="rounded px-2 py-1 text-gray-900"/>
-            <input type="text" name="subjek" placeholder="Subjek" required class="rounded px-2 py-1 text-gray-900"/>
-            <textarea name="pesan" placeholder="Pesan" required class="rounded px-2 py-1 text-gray-900"></textarea>
-            <button type="submit" class="bg-cyan-500 hover:bg-cyan-600 text-white font-semibold rounded px-3 py-1 mt-1 transition-colors">Kirim Pesan</button>
-          </form>
-          <!-- Opsional: Notifikasi submit -->
+   
+<footer class="bg-blue-900 text-white py-10 px-4 mt-8">
+  <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-8 items-start">
+
+    <!-- Company Info -->
+    <div class="space-y-4 pl-4">
+      <h3 class="text-2xl font-extrabold tracking-wide leading-tight text-cyan-300">
+        PT. Hongsen Environmental Protection
+      </h3>
+      <p>Jln. Pluit Selatan Raya No.01, Jakarta Utara</p>
+      <p>Email: hongsen.environmental@gmail.com</p>
+      <p>Telp: +62 82118393335</p>
+      <div class="mt-4">
+        <h4 class="font-semibold text-white mb-2">Tautan Cepat</h4>
+        <ul class="space-y-1 text-sm text-blue-100">
+          <li><a class="hover:underline" href="#visi">Visi & Misi</a></li>
+          <li><a class="hover:underline" href="#nilai">Nilai Perusahaan</a></li>
+          <li><a class="hover:underline" href="#profil">Profil Perusahaan</a></li>
+          <li><a class="hover:underline" href="produk.html">Produk Kami</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Contact Form -->
+    <div class="bg-white rounded-xl shadow-lg p-6 text-gray-800 sticky top-6">
+      <h4 class="text-lg font-semibold text-blue-900 mb-3">Hubungi Kami</h4>
+      <form action="https://formspree.io/f/xdoqzqzq" method="POST" class="space-y-3 text-sm">
+        <input type="text" name="nama" placeholder="Nama" required class="w-full px-4 py-2 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400" />
+        <input type="email" name="email" placeholder="Email" required class="w-full px-4 py-2 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400" />
+        <input type="tel" name="telepon" placeholder="Telepon" required class="w-full px-4 py-2 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400" />
+        <input type="text" name="subjek" placeholder="Subjek" required class="w-full px-4 py-2 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400" />
+        <textarea name="pesan" placeholder="Pesan" rows="3" required class="w-full px-4 py-2 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400"></textarea>
+        <button type="submit" class="w-full bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-blue-500 hover:to-cyan-500 text-white font-semibold py-2 rounded transition duration-200">
+          Kirim Pesan
+        </button>
+      </form>
+    </div>
+                 <!-- Opsional: Notifikasi submit -->
           <div id="footerFormNotif" class="hidden text-green-200 mt-2 text-xs"></div>
         </div>
       </div>
@@ -766,7 +731,7 @@
     </div>
    </footer>
    <a class="fixed bottom-4 right-3 whatsapp-button ripple" href="https://wa.me/6282118393335">
-    <img alt="Chat WhatsApp" class="w-12 h-12" src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"/>
+    <img loading="lazy" alt="Chat WhatsApp" class="w-12 h-12" src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"/>
    </a>
    <!-- Swiper & Lightbox JS -->
    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
